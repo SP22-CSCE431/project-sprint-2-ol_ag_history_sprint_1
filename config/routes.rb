@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :events
   resources :members
   
-  root "events#index"
+  root "members#index"
   
   get "/members/:id" , to: "members#show"
   get "/lineages/:id" , to: "lineages#show"
