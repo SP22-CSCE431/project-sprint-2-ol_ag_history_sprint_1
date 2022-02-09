@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Memberid:</strong>
+  <%= @lineage.memberID %>
+</p>
+
+<p>
+  <strong>Big:</strong>
+  <%= @lineage.big %>
+</p>
+
+<p>
+  <strong>Little:</strong>
+  <%= @lineage.little %>
+</p>
+
+<%= link_to 'Edit', edit_lineage_path(@lineage) %> |
+<%= link_to 'Back', lineages_path %>
