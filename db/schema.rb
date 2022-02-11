@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_09_024459) do
+ActiveRecord::Schema.define(version: 2022_02_11_024915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2022_02_09_024459) do
   end
 
   create_table "lineages", force: :cascade do |t|
-    t.integer "memberID"
-    t.integer "big"
-    t.integer "little"
+    t.integer "member_id"
+    t.string "big"
+    t.string "little"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
