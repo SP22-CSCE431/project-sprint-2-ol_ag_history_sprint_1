@@ -65,6 +65,6 @@ class LineagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lineage_params
-      params.require(:lineage).permit(:memberID, :big, :little)
+      params.require(:lineage).permit(:member_id, :big, :little)
     end
 end

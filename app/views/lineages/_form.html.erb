@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :memberID %>
-    <%= form.number_field :memberID %>
+    <%= form.label :member_id %>
+    <%= collection_select( :lineage, :member_id, Member.all, :id, :fname, {}, { :multiple => false}) %>
   </div>
 
   <div class="field">

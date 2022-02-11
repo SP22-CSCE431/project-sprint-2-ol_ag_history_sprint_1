@@ -17,7 +17,7 @@ class LineagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lineage" do
     assert_difference('Lineage.count') do
-      post lineages_url, params: { lineage: { big: @lineage.big, little: @lineage.little, memberID: @lineage.memberID } }
+      post lineages_url, params: { lineage: { big: @lineage.big, little: @lineage.little, member_id: @lineage.member_id } }
     end
 
     assert_redirected_to lineage_url(Lineage.last)
@@ -34,7 +34,7 @@ class LineagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update lineage" do
-    patch lineage_url(@lineage), params: { lineage: { big: @lineage.big, little: @lineage.little, memberID: @lineage.memberID } }
+    patch lineage_url(@lineage), params: { lineage: { big: @lineage.big, little: @lineage.little, member_id: @lineage.member_id } }
     assert_redirected_to lineage_url(@lineage)
   end
 
