@@ -16,7 +16,7 @@ class LineagesTest < ApplicationSystemTestCase
 
     fill_in "Big", with: @lineage.big
     fill_in "Little", with: @lineage.little
-    fill_in "Memberid", with: @lineage.memberID
+    fill_in "Member", with: @lineage.member_id
     click_on "Create Lineage"
 
     assert_text "Lineage was successfully created"
@@ -29,7 +29,7 @@ class LineagesTest < ApplicationSystemTestCase
 
     fill_in "Big", with: @lineage.big
     fill_in "Little", with: @lineage.little
-    fill_in "Memberid", with: @lineage.memberID
+    fill_in "Member", with: @lineage.member_id
     click_on "Update Lineage"
 
     assert_text "Lineage was successfully updated"
