@@ -18,7 +18,7 @@ Things you may want to cover:
   -rails db:create
   -rails db:migrate
   
-  alternatively run this command: bundle install && webpacker:install && rails db:create && rails db:migrate
+  alternatively run this command: bundle install && rails db:create && rails db:migrate
 
 * Database creation
 

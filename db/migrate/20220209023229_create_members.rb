@@ -1,7 +1,6 @@
 class CreateMembers < ActiveRecord::Migration[6.1]
   def change
     create_table :members do |t|
-      t.integer :memberID
       t.string :fname
       t.string :lname
       t.date :joinDate
@@ -11,7 +10,6 @@ class CreateMembers < ActiveRecord::Migration[6.1]
       t.string :city
       t.boolean :admin
       t.string :major
-      t.string :password
 
       t.timestamps
     end

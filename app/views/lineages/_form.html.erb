@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :big %>
-    <%= form.text_field :big %>
+    <%= collection_select( :lineage, :big, Member.all, :id, :fname, {}, { :multiple => false}) %>
   </div>
 
   <div class="field">
     <%= form.label :little %>
-    <%= form.text_field :little %>
+    <%= collection_select( :lineage, :little, Member.all, :id, :fname, {}, { :multiple => false}) %>
   </div>
 
   <div class="actions">

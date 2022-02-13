@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2022_02_11_024915) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.integer "memberID"
     t.string "fname"
     t.string "lname"
     t.date "joinDate"
@@ -43,7 +42,6 @@ ActiveRecord::Schema.define(version: 2022_02_11_024915) do
     t.string "city"
     t.boolean "admin"
     t.string "major"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
