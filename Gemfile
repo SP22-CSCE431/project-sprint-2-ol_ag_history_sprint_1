@@ -56,5 +56,10 @@ group :test do
   gem 'simplecov', :require => false
 end
 
+gem 'devise'
+gem 'omniauth', '>= 1.9.1'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
