@@ -140,12 +140,12 @@ RSpec.describe 'Add join date', type: :feature do
     end
   end
 
-  RSpec.describe 'Lineage two identical nodes', type: :feature do
+  RSpec.describe 'Lineage one null node', type: :feature do
     it 'valid inputs' do
       testMember1 = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com")
       testMember2 = Member.create(:fname => "Tim", :lname => "Henry", :email => "JohnHenry@email.com")
 
-      testNode = Lineage.create(:member_id => testMember1.id, :big => testMember2.id, :little => testMember2.id)
+      testNode = Lineage.create(:member_id => testMember1.id, :big => testMember2.id, :little => nil)
       visit lineages_path
       expect(page).to have_content('John')
       expect(page).to have_content('Tim')
