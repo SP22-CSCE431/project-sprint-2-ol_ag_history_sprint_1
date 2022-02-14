@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lineages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Big</th>
+      <th>Little</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lineages.each do |lineage| %>
+      <tr>
+        <td><%= lineage.member.fname %></td>
+        <td><%= lineage.big %></td>
+        <td><%= lineage.little %></td>
+        <td><%= link_to 'Show', lineage %></td>
+        <td><%= link_to 'Edit', edit_lineage_path(lineage) %></td>
+        <td><%= link_to 'Destroy', lineage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lineage', new_lineage_path %>

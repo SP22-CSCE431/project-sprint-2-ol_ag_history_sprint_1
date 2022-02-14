@@ -1,0 +1,32 @@
+<%= form_with(model: lineage) do |form| %>
+  <% if lineage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lineage.errors.count, "error") %> prohibited this lineage from being saved:</h2>
+
+      <ul>
+        <% lineage.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :member_id %>
+    <%= collection_select( :lineage, :member_id, Member.all, :id, :fname, {}, { :multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :big %>
+    <%= form.text_field :big %>
+  </div>
+
+  <div class="field">
+    <%= form.label :little %>
+    <%= form.text_field :little %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

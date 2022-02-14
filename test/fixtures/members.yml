@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  memberID: 1
+  fname: MyString
+  lname: MyString
+  joinDate: 2022-02-09
+  gradeDate: 2022-02-09
+  email: MyString
+  phoneNumber: MyString
+  city: MyString
+  admin: 
+  major: MyString
+  password: MyString
+
+two:
+  memberID: 1
+  fname: MyString
+  lname: MyString
+  joinDate: 2022-02-09
+  gradeDate: 2022-02-09
+  email: MyString
+  phoneNumber: MyString
+  city: MyString
+  admin: 
+  major: MyString
+  password: MyString
