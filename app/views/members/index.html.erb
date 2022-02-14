@@ -5,17 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Memberid</th>
       <th>Fname</th>
       <th>Lname</th>
       <th>Joindate</th>
-      <th>Gradedate</th>
+      <th>Graddate</th>
       <th>Email</th>
       <th>Phonenumber</th>
       <th>City</th>
       <th>Admin</th>
       <th>Major</th>
-      <th>Password</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +21,6 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.memberID %></td>
         <td><%= member.fname %></td>
         <td><%= member.lname %></td>
         <td><%= member.joinDate %></td>
@@ -33,7 +30,6 @@
         <td><%= member.city %></td>
         <td><%= member.admin %></td>
         <td><%= member.major %></td>
-        <td><%= member.password %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>

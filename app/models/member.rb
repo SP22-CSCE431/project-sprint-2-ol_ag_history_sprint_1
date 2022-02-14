@@ -1,3 +1,4 @@
 class Member < ApplicationRecord
-  has_one :lineage
+  validates :fname, :lname, :email, presence: true
+  has_one :lineage, dependent: :destroy
 end
