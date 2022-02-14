@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :lineages
   resources :events
   resources :members
+
+  resources :calendar, only: [:show],controller: :calendar
   
   root "members#index"
   

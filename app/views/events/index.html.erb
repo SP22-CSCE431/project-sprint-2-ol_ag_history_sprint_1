@@ -12,7 +12,9 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  <%= month_calendar do |date| %>
+    <%= date %>
+  <% end %>
   <tbody>
     <% @events.each do |event| %>
       <tr>
