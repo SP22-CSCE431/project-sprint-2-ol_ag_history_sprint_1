@@ -15,9 +15,21 @@
   <tbody>
     <% @lineages.each do |lineage| %>
       <tr>
-        <td><%= Member.where(id: lineage.member_id).last.fname %></td>
-        <td><%= Member.where(id: lineage.big).last.fname %></td>
-        <td><%= Member.where(id: lineage.little).last.fname %></td>
+        <td><%= link_to Member.where(id: lineage.member_id).last.fname, member_path(lineage.member_id)%></td>
+        <td><%= 
+        if Member.where(id: lineage.big).exists?
+          link_to Member.where(id: lineage.big).last.fname, member_path(lineage.member_id) 
+        else
+          "Head"
+        end 
+        %></td>
+        <td><%=
+        if Member.where(id: lineage.little).exists?
+          link_to Member.where(id: lineage.little).last.fname, member_path(lineage.member_id) 
+        else
+          "Tail"
+        end 
+        %></td>
         <td><%= link_to 'Show', lineage %></td>
         <td><%= link_to 'Edit', edit_lineage_path(lineage) %></td>
         <td><%= link_to 'Destroy', lineage, method: :delete, data: { confirm: 'Are you sure?' } %></td>

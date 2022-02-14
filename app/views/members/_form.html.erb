@@ -48,7 +48,7 @@
 
   <div class="field">
     <%= form.label :admin %>
-    <%= form.text_field :admin %>
+    <%= form.select :admin, options_for_select([['True', true], ['False', false]])%>
   </div>
 
   <div class="field">

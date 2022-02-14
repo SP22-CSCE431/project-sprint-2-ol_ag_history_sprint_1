@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2022_02_11_024915) do
 
   create_table "lineages", force: :cascade do |t|
     t.integer "member_id"
-    t.string "big"
-    t.string "little"
+    t.integer "big"
+    t.integer "little"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

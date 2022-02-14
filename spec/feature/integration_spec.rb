@@ -85,7 +85,7 @@ RSpec.describe 'Add join date', type: :feature do
   RSpec.describe 'Full member', type: :feature do
     it 'valid inputs' do
       testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6), 
-      :gradeDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234", :city => "Dallas", :admin => 0, :major => "Material Science") 
+      :gradeDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234", :city => "Dallas", :admin => 1, :major => "Material Science") 
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
@@ -94,7 +94,7 @@ RSpec.describe 'Add join date', type: :feature do
       expect(page).to have_content('2005-08-02')
       expect(page).to have_content('(345)-6849-234')
       expect(page).to have_content('Dallas')
-      expect(page).to have_content('false')
+      expect(page).to have_content('true')
       expect(page).to have_content('Material Science')
     end
   end
