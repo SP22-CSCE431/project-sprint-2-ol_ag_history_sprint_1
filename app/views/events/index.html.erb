@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
-
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
 <table>
   <thead>
     <tr>
