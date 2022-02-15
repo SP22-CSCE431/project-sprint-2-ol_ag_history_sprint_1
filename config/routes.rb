@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attendances
   resources :dues
   resources :lineages
   resources :events
