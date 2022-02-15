@@ -1,0 +1,34 @@
+<%= form_with(model: due) do |form| %>
+  <% if due.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(due.errors.count, "error") %> prohibited this due from being saved:</h2>
+
+      <ul>
+        <% due.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :member_id %>
+    <% options = options_from_collection_for_select(@members, 'id', 'fname') %>
+    <%= form.select :member_id,  options %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_id %>
+    <% options = options_from_collection_for_select(@events, 'id', 'name') %>
+    <%= form.select :event_id,  options %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dueAmount %>
+    <%= form.number_field :dueAmount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

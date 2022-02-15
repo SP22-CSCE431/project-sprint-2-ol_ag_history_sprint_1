@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @member.fname %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Due Amount:</strong>
+  <%= @due.dueAmount %>
+</p>
+
+<%= link_to 'Edit', edit_due_path(@due) %> |
+<%= link_to 'Back', dues_path %>
