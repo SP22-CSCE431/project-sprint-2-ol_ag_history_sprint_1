@@ -10,6 +10,9 @@ RSpec.describe 'Creating Min Requirements for Member', type: :feature do
     expect(page).to have_content('John')
     expect(page).to have_content('Henry')
     expect(page).to have_content('JohnHenry@email.com')
+
+    testMember.destroy()
+    expect(defined?(testMember))
   end
 end
 
