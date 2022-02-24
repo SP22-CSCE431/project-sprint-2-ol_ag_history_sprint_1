@@ -17,7 +17,7 @@
 
 <p>
   <strong>Gradedate:</strong>
-  <%= @member.gradeDate %>
+  <%= @member.gradDate %>
 </p>
 
 <p>
@@ -43,6 +43,11 @@
 <p>
   <strong>Major:</strong>
   <%= @member.major %>
+</p>
+
+<p>
+  <strong>Major:</strong>
+  <%= @member.active %>
 </p>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
