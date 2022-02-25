@@ -1,1 +1,1 @@
-json.partial! "lineages/lineage", lineage: @lineage
+json.partial! 'lineages/lineage', lineage: @lineage

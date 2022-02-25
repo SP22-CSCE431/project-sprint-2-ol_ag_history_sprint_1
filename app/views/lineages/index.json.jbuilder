@@ -1,1 +1,1 @@
-json.array! @lineages, partial: "lineages/lineage", as: :lineage
+json.array! @lineages, partial: 'lineages/lineage', as: :lineage

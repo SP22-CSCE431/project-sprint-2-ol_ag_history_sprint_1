@@ -1,7 +1,7 @@
 class Lineage < ApplicationRecord
-  validates :member_id, uniqueness: {scope: :member_id}
-  validates :big, uniqueness: {scope: :big}
-  validates :little, uniqueness: {scope: :little}
+  validates :member_id, uniqueness: { scope: :member_id }
+  validates :big, uniqueness: { scope: :big }
+  validates :little, uniqueness: { scope: :little }
   validate :check_equality
   validate :At_least_two_nodes
 
@@ -12,9 +12,7 @@ class Lineage < ApplicationRecord
   end
 
   def At_least_two_nodes
-    if (big.blank? && little.blank?)
-      errors.add(:Member, ": At last two members need ")
-    end
+    errors.add(:Member, ': At last two members need ') if big.blank? && little.blank?
   end
 
   belongs_to :member
