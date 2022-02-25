@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Eventid:</strong>
-  <%= @event.eventID %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @event.name %>
 </p>
-
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
 <p>
   <strong>Location:</strong>
   <%= @event.location %>
 </p>
 
 <p>
-  <strong>Time:</strong>
-  <%= @event.time %>
+  <strong> Start Time: </strong>
+  <%= @event.start_time %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<p>
+  <strong> End Time: </strong>
+  <%= @event.end_time %>
+</p>
+
+<%= link_to 'Edit Event', edit_event_path(@event) %> |
+<%= link_to 'Remove Event', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Return to Events Calendar', events_path %>
