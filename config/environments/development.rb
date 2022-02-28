@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -75,5 +77,4 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   ENV['GOOGLE_OAUTH_CLIENT_ID'] = '674033047821-temt7okdj1rv9tsnjb9tmvrfu47ahnbu.apps.googleusercontent.com'
   ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'
-
 end
