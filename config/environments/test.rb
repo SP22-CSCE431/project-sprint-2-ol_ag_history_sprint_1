@@ -64,7 +64,7 @@ Rails.application.configure do
     uid: '123456789',
     info: {
       name: 'User Doe',
-      email: 'userdoe@example.com',
+      email: 'userdoe@tamu.edu',
       first_name: 'User',
       last_name: 'Doe',
       image: 'https://lh3.googleusercontent.com/url/photo.jpg'
@@ -83,7 +83,7 @@ Rails.application.configure do
     uid: '234567890',
     info: {
       name: 'Admin Doe',
-      email: 'admindoe@example.com',
+      email: 'admindoe@tamu.edu',
       first_name: 'Admin',
       last_name: 'Doe',
       image: 'https://lh3.googleusercontent.com/url/photo.jpg'
