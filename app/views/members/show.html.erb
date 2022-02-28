@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Memberid:</strong>
-  <%= @member.memberID %>
-</p>
-
-<p>
   <strong>Fname:</strong>
   <%= @member.fname %>
 </p>
@@ -22,7 +17,7 @@
 
 <p>
   <strong>Gradedate:</strong>
-  <%= @member.gradeDate %>
+  <%= @member.gradDate %>
 </p>
 
 <p>
@@ -51,8 +46,8 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @member.password %>
+  <strong>Major:</strong>
+  <%= @member.active %>
 </p>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |

@@ -1,7 +1,7 @@
 class CreateLineages < ActiveRecord::Migration[6.1]
   def change
     create_table :lineages do |t|
-      t.integer :memberID
+      t.integer :member_id
       t.integer :big
       t.integer :little
 

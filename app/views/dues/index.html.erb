@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Event</th>
+      <th>Due Amount</th>
+      <th>Paid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dues.each do |due| %>
+      <tr>
+        <td><%= Member.where(id: due.member_id).last.fname %></td>
+        <td><%= Event.where(id: due.event_id).last.name %></td>
+        <td><%= due.dueAmount %></td>
+        <td><%= due.paid %></td>
+        <td><%= link_to 'Show', due %></td>
+        <td><%= link_to 'Edit', edit_due_path(due) %></td>
+        <td><%= link_to 'Destroy', due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Due', new_due_path %> |
+<%= link_to 'Members Page', members_path %> |
+<%= link_to 'Events Page', events_path %>
