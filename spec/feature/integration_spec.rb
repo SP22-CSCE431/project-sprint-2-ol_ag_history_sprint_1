@@ -50,7 +50,7 @@ RSpec.describe('Authentication', type: :feature) do
       end
     end
 
-  describe 'Add grad date', type: :feature do
+  describe 'Creating Edit Full Member', type: :feature do
     it 'valid inputs' do
       testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2))
@@ -63,7 +63,7 @@ RSpec.describe('Authentication', type: :feature) do
     end
   end
 
-  describe 'Add phone number', type: :feature do
+  describe 'Delete Member', type: :feature do
     it 'valid inputs' do
       testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234")
