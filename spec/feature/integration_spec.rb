@@ -195,24 +195,59 @@ RSpec.describe('Authentication', type: :feature) do
       expect(page).to have_content('Tim')
     end
   end
-end  
-
-
 
   #Attendance Test
-  #Most of these atrributes are required
-  RSpec.describe 'Did no attend, did not RSVP', type: :feature do
-    scenario 'valid inputs' do
-      testMember1 = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com")
-      testEvent = Event.create(:name => "Funeral", :location => "Church", :time => "12:00AM")
-
-      testAttendance = Attendance.create(:member_id => "1", :event_id => "1", :attended => "false", :rsvp => "false")
+  describe 'rsvped and attended', type: :feature do
+    it 'valid inputs' do
+      testMember1 = Member.create!(fname: "John", lname: "Henry", email: "JohnHenry@email.com")
+      testEvent1 = Event.create!(name: "Funeral", location: "Church", time: "12:00AM")
+      visit new_attendance_path
+      select "John", :from => "Member"
+      select "Funeral", :from => "Event"
+      check 'Rsvp'
+      check 'Attended'
+      click_on "Create Attendance"
       visit attendances_path
-      expect
-      expect(page).to have_content("John")
-      expect(page).to have_content("Funeral")
-      expect(page).to have_content("false")
-      expect(page).to have_content("true")
+      expect(page).to have_content('John')
+      expect(page).to have_content('Funeral')
+      expect(page).to have_content('true')
+      expect(page).to have_content('true')
+    end
+  end
+
+  describe 'no rsvp and attended', type: :feature do
+    it 'valid inputs' do
+      testMember1 = Member.create!(fname: "John", lname: "Henry", email: "JohnHenry@email.com")
+      testEvent1 = Event.create!(name: "Funeral", location: "Church", time: "12:00AM")
+      visit new_attendance_path
+      select "John", :from => "Member"
+      select "Funeral", :from => "Event"
+      check 'Attended'
+      click_on "Create Attendance"
+      visit attendances_path
+      expect(page).to have_content('John')
+      expect(page).to have_content('Funeral')
+      expect(page).to have_content('false')
+      expect(page).to have_content('true')
+    end
+  end
+
+  #Dues Test
+  describe 'due amount filled and paid', type: :feature do
+    it 'valid inputs' do
+      testMember1 = Member.create!(fname: "John", lname: "Henry", email: "JohnHenry@email.com")
+      testEvent1 = Event.create!(name: "Funeral", location: "Church", time: "12:00AM")
+      visit new_due_path
+      select "John", :from => "Member"
+      select "Funeral", :from => "Event"
+      fill_in "Dueamount", with: 120
+      check 'Paid'
+      click_on "Create Due"
+      visit dues_path
+      expect(page).to have_content('John')
+      expect(page).to have_content('Funeral')
+      expect(page).to have_content('120')
+      expect(page).to have_content('true')
     end
   end
 end
