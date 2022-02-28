@@ -16,4 +16,22 @@ class Lineage < ApplicationRecord
   def at_least_two_nodes
     errors.add(:Member, ': At last two members need ') if father.blank? && son.blank?
   end
+
+  def name_check (attribute)
+    if Member.where(id: attribute).exists?
+      Member.where(id: attribute).last.fname
+    elsif attribute == self.father
+      "Head"
+    else
+      "Tail" 
+    end 
+  end
+
+  def nil_check (attribute)
+    if Member.where(id: attribute).exists?
+      {}
+    else
+      {target: "_blank"}
+    end
+  end
 end
