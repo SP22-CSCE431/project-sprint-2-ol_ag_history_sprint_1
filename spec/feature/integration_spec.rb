@@ -28,11 +28,11 @@ RSpec.describe('Authentication', type: :feature) do
   #Members Test
   describe 'Creating Min Requirements for Member', type: :feature do
     scenario 'valid inputs' do
-      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com")
+      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu")
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
-      expect(page).to have_content('JohnHenry@email.com')
+      expect(page).to have_content('JohnHenry@tamu.edu')
 
       testMember.destroy()
       expect(defined?(testMember))
@@ -41,23 +41,23 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Add join date', type: :feature do
       it 'valid inputs' do
-        testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6))
+        testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6))
         visit members_path
         expect(page).to have_content('John')
         expect(page).to have_content('Henry')
-        expect(page).to have_content('JohnHenry@email.com')
+        expect(page).to have_content('JohnHenry@tamu.edu')
         expect(page).to have_content('2001-03-06')
       end
     end
 
   describe 'Add grad date', type: :feature do
     it 'valid inputs' do
-      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6), 
+      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2))
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
-      expect(page).to have_content('JohnHenry@email.com')
+      expect(page).to have_content('JohnHenry@tamu.edu')
       expect(page).to have_content('2001-03-06')
       expect(page).to have_content('2005-08-02')
     end
@@ -65,12 +65,12 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Add phone number', type: :feature do
     it 'valid inputs' do
-      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6), 
+      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234")
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
-      expect(page).to have_content('JohnHenry@email.com')
+      expect(page).to have_content('JohnHenry@tamu.edu')
       expect(page).to have_content('2001-03-06')
       expect(page).to have_content('2005-08-02')
       expect(page).to have_content('(345)-6849-234')
@@ -79,12 +79,12 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Add city', type: :feature do
     it 'valid inputs' do
-      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6), 
+      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234" , :city => "Dallas")
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
-      expect(page).to have_content('JohnHenry@email.com')
+      expect(page).to have_content('JohnHenry@tamu.edu')
       expect(page).to have_content('2001-03-06')
       expect(page).to have_content('2005-08-02')
       expect(page).to have_content('(345)-6849-234')
@@ -94,12 +94,12 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Add admin', type: :feature do
     it 'valid inputs' do
-      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6), 
+      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234" , :city => "Dallas", :admin => 0)
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
-      expect(page).to have_content('JohnHenry@email.com')
+      expect(page).to have_content('JohnHenry@tamu.edu')
       expect(page).to have_content('2001-03-06')
       expect(page).to have_content('2005-08-02')
       expect(page).to have_content('(345)-6849-234')
@@ -110,12 +110,12 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Full major', type: :feature do
     it 'valid inputs' do
-      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6), 
+      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234", :city => "Dallas", :admin => 1, :major => "Material Science") 
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
-      expect(page).to have_content('JohnHenry@email.com')
+      expect(page).to have_content('JohnHenry@tamu.edu')
       expect(page).to have_content('2001-03-06')
       expect(page).to have_content('2005-08-02')
       expect(page).to have_content('(345)-6849-234')
@@ -127,12 +127,12 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Full member', type: :feature do
     it 'valid inputs' do
-      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com", :joinDate => Date.new(2001,3,6), 
+      testMember = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu", :joinDate => Date.new(2001,3,6), 
       :gradDate => Date.new(2005,8,2), :phoneNumber => "(345)-6849-234", :city => "Dallas", :admin => 1, :major => "Material Science", :active => 1) 
       visit members_path
       expect(page).to have_content('John')
       expect(page).to have_content('Henry')
-      expect(page).to have_content('JohnHenry@email.com')
+      expect(page).to have_content('JohnHenry@tamu.edu')
       expect(page).to have_content('2001-03-06')
       expect(page).to have_content('2005-08-02')
       expect(page).to have_content('(345)-6849-234')
@@ -172,9 +172,9 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Lineage three diffrent member nodes', type: :feature do
     it 'valid inputs' do
-      testMember1 = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com")
-      testMember2 = Member.create(:fname => "Tim", :lname => "Henry", :email => "JohnHenry@email.com")
-      testMember3 = Member.create(:fname => "Jade", :lname => "Henry", :email => "JohnHenry@email.com")
+      testMember1 = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu")
+      testMember2 = Member.create(:fname => "Tim", :lname => "Henry", :email => "JohnHenry@tamu.edu")
+      testMember3 = Member.create(:fname => "Jade", :lname => "Henry", :email => "JohnHenry@tamu.edu")
 
       testNode = Lineage.create(:member_id => testMember1.id, :big => testMember2.id, :little => testMember3.id)
       visit lineages_path
@@ -186,8 +186,8 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Lineage one null node', type: :feature do
     it 'valid inputs' do
-      testMember1 = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@email.com")
-      testMember2 = Member.create(:fname => "Tim", :lname => "Henry", :email => "JohnHenry@email.com")
+      testMember1 = Member.create(:fname => "John", :lname => "Henry", :email => "JohnHenry@tamu.edu")
+      testMember2 = Member.create(:fname => "Tim", :lname => "Henry", :email => "JohnHenry@tamu.edu")
 
       testNode = Lineage.create(:member_id => testMember1.id, :big => testMember2.id, :little => nil)
       visit lineages_path
