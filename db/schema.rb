@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_15_034919) do
+ActiveRecord::Schema.define(version: 2022_02_25_154929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "full_name"
+    t.string "uid"
+    t.string "avatar_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
 
   create_table "attendances", force: :cascade do |t|
     t.integer "member_id"
@@ -30,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_034919) do
     t.integer "dueAmount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "paid"
   end
 
   create_table "events", force: :cascade do |t|
@@ -43,14 +54,13 @@ ActiveRecord::Schema.define(version: 2022_02_15_034919) do
 
   create_table "lineages", force: :cascade do |t|
     t.integer "member_id"
-    t.string "big"
-    t.string "little"
+    t.integer "big"
+    t.integer "little"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "members", force: :cascade do |t|
-    t.integer "memberID"
     t.string "fname"
     t.string "lname"
     t.date "joinDate"
@@ -60,7 +70,6 @@ ActiveRecord::Schema.define(version: 2022_02_15_034919) do
     t.string "city"
     t.boolean "admin"
     t.string "major"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

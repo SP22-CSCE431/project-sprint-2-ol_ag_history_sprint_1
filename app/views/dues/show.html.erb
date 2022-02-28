@@ -15,5 +15,10 @@
   <%= @due.dueAmount %>
 </p>
 
+<p>
+  <strong>Paid:</strong>
+  <%= @due.paid %>
+</p>
+
 <%= link_to 'Edit', edit_due_path(@due) %> |
 <%= link_to 'Back', dues_path %>

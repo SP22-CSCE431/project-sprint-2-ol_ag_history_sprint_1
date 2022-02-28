@@ -73,6 +73,6 @@ class DuesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def due_params
-      params.require(:due).permit(:member_id, :event_id, :dueAmount)
+      params.require(:due).permit(:member_id, :event_id, :dueAmount, :paid)
     end
 end
