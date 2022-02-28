@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_25_154929) do
+ActiveRecord::Schema.define(version: 2022_02_23_213852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2022_02_25_154929) do
     t.string "fname"
     t.string "lname"
     t.date "joinDate"
-    t.date "gradeDate"
     t.string "email"
     t.string "phoneNumber"
     t.string "city"
@@ -72,6 +71,8 @@ ActiveRecord::Schema.define(version: 2022_02_25_154929) do
     t.string "major"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active"
+    t.date "gradDate"
   end
 
 end

@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :gradeDate %>
-    <%= form.date_select :gradeDate %>
+    <%= form.label :gradDate %>
+    <%= form.date_select :gradDate %>
   </div>
 
   <div class="field">
@@ -54,6 +54,11 @@
   <div class="field">
     <%= form.label :major %>
     <%= form.text_field :major %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.select :active, options_for_select([['True', true], ['False', false]])%>
   </div>
 
   <div class="actions">
