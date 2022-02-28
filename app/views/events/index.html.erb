@@ -9,7 +9,12 @@
 
   <% events.each do |event| %>
     <div>
-      <%= link_to event.name, event%>
+      <%= event.name%>
+      <%= " @ "%>
+      <%= event.start_time.hour%>
+      <%=":"%> 
+      <%= event.start_time.min %>
+      <%= link_to "Details", event%>
     </div>
   <% end %>
 <% end %>
