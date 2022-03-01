@@ -21,6 +21,13 @@
         <td><%= Member.where(id: due.member_id).last.fname %></td>
         <td><%= Event.where(id: due.event_id).last.name %></td>
         <td><%= due.dueAmount %></td>
+        <td>
+          <% if due.paid? %>
+            <%= "\u2705" %>
+          <% else %>
+            <%= "\u274C" %>
+          <% end %>
+        </td>
         <td><%= due.paid %></td>
         <td><%= link_to 'Show', due %></td>
         <td><%= link_to 'Edit', edit_due_path(due) %></td>
