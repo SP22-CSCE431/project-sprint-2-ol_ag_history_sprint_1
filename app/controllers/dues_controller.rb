@@ -3,11 +3,18 @@ class DuesController < ApplicationController
 
   # GET /dues or /dues.json
   def index
-    @dues = Due.all
-    @members = Member.all
-    @events = Event.all
+    #@dues = Due.all
+    #@members = Member.all
+    #@events = Event.all
+    @q = Due.ransack(params[:q])
+    @dues = @q.result(distinct: true).includes(:member, :event)
   end
 
+  def search
+    index
+    render :index
+  end
+  
   # GET /dues/1 or /dues/1.json
   def show
     @member = Member.find(@due.member_id)

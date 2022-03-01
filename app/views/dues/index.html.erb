@@ -2,13 +2,15 @@
 
 <h1>Dues</h1>
 
+<%= render 'dues/search_form.html.erb' %>
+
 <table>
   <thead>
     <tr>
-      <th>Member</th>
-      <th>Event</th>
-      <th>Due Amount</th>
-      <th>Paid</th>
+      <th><%= sort_link(@q, :member_id, "Member Name") %></th>
+      <th><%= sort_link(@q, :event_id, "Event Name") %></th>
+      <th><%= sort_link(@q, :dueAmount, "Due Amount") %></th>
+      <th><%= sort_link(@q, :paid, "Paid") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

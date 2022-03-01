@@ -1,7 +1,11 @@
 
 Rails.application.routes.draw do
   resources :attendances
-  resources :dues
+  resources :dues do
+    collection do
+      match 'search' => 'dues#search', via: [:get, :post], as: :search
+    end
+  end
   resources :lineages
   resources :events
   resources :members
