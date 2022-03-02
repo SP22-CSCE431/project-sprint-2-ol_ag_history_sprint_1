@@ -50,17 +50,21 @@ ActiveRecord::Schema.define(version: 2022_02_25_154929) do
     t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "description"
   end
 
   create_table "lineages", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "father"
-    t.integer "son"
+    t.string "big"
+    t.string "little"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "members", force: :cascade do |t|
+    t.integer "memberID"
     t.string "fname"
     t.string "lname"
     t.date "joinDate"
@@ -69,6 +73,7 @@ ActiveRecord::Schema.define(version: 2022_02_25_154929) do
     t.string "city"
     t.boolean "admin"
     t.string "major"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "active"
