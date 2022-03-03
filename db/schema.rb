@@ -50,12 +50,15 @@ ActiveRecord::Schema.define(version: 2022_02_25_154929) do
     t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "description"
   end
 
   create_table "lineages", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "big"
-    t.integer "little"
+    t.integer "father"
+    t.integer "son"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

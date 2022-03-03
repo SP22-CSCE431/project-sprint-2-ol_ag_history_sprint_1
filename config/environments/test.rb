@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -64,7 +66,7 @@ Rails.application.configure do
     uid: '123456789',
     info: {
       name: 'User Doe',
-      email: 'userdoe@example.com',
+      email: 'userdoe@tamu.edu',
       first_name: 'User',
       last_name: 'Doe',
       image: 'https://lh3.googleusercontent.com/url/photo.jpg'
@@ -83,7 +85,7 @@ Rails.application.configure do
     uid: '234567890',
     info: {
       name: 'Admin Doe',
-      email: 'admindoe@example.com',
+      email: 'admindoe@tamu.edu',
       first_name: 'Admin',
       last_name: 'Doe',
       image: 'https://lh3.googleusercontent.com/url/photo.jpg'
@@ -95,5 +97,5 @@ Rails.application.configure do
       expires: true
     }
   }
-                                                                  )
+                                                                   )
 end
