@@ -14,6 +14,7 @@
       <th>City</th>
       <th>Admin</th>
       <th>Major</th>
+      <th>Active</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,12 +25,13 @@
         <td><%= member.fname %></td>
         <td><%= member.lname %></td>
         <td><%= member.joinDate %></td>
-        <td><%= member.gradeDate %></td>
+        <td><%= member.gradDate %></td>
         <td><%= member.email %></td>
         <td><%= member.phoneNumber %></td>
         <td><%= member.city %></td>
         <td><%= member.admin %></td>
         <td><%= member.major %></td>
+        <td><%= member.active %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>

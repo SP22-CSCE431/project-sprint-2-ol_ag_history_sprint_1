@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :joinDate %>
-    <%= form.date_select :joinDate %>
+    <%= form.date_field :joinDate %>
   </div>
 
   <div class="field">
-    <%= form.label :gradeDate %>
-    <%= form.date_select :gradeDate %>
+    <%= form.label :gradDate %>
+    <%= form.date_field :gradDate %>
   </div>
 
   <div class="field">
@@ -48,12 +48,17 @@
 
   <div class="field">
     <%= form.label :admin %>
-    <%= form.select :admin, options_for_select([['True', true], ['False', false]])%>
+    <%= form.check_box :admin %>
   </div>
 
   <div class="field">
     <%= form.label :major %>
     <%= form.text_field :major %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active %>
   </div>
 
   <div class="actions">

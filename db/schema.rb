@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_11_024915) do
+ActiveRecord::Schema.define(version: 2022_02_25_154929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "full_name"
+    t.string "uid"
+    t.string "avatar_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "event_id"
+    t.boolean "attended"
+    t.boolean "rsvp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dues", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "event_id"
+    t.integer "dueAmount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "paid"
+  end
 
   create_table "events", force: :cascade do |t|
     t.integer "eventID"
@@ -22,12 +50,15 @@ ActiveRecord::Schema.define(version: 2022_02_11_024915) do
     t.string "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "description"
   end
 
   create_table "lineages", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "big"
-    t.integer "little"
+    t.integer "father"
+    t.integer "son"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,7 +67,6 @@ ActiveRecord::Schema.define(version: 2022_02_11_024915) do
     t.string "fname"
     t.string "lname"
     t.date "joinDate"
-    t.date "gradeDate"
     t.string "email"
     t.string "phoneNumber"
     t.string "city"
@@ -44,6 +74,8 @@ ActiveRecord::Schema.define(version: 2022_02_11_024915) do
     t.string "major"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active"
+    t.date "gradDate"
   end
 
 end

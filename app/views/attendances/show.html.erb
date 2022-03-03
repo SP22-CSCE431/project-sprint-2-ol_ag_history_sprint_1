@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @member.fname %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Attended:</strong>
+  <%= @attendance.attended %>
+</p>
+
+<p>
+  <strong>Rsvp:</strong>
+  <%= @attendance.rsvp %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>
