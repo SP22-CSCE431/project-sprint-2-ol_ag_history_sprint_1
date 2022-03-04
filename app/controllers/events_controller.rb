@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
+    start_date = params.fetch(:start_date, Date.today).to_date
     @events = Event.all
   end
 
@@ -57,6 +58,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def start_time
+    self.event.time
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -66,6 +71,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:eventID, :name, :location, :time)
+    params.require(:event).permit(:name, :description, :location, :start_time, :end_time)
   end
 end
