@@ -1,57 +1,53 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
-    <div class="p-3 mb-2 bg-light text-dark">
-    <p>
-      <strong>Name:</strong>
-      <%= @member.fname %>
-      <%= @member.lname %>
-    </p>
+<p>
+  <strong>Name:</strong>
+  <%= @member.fname %>
+  <%= @member.lname %>
+</p>
 
-    <p>
-      <strong>Join Date:</strong>
-      <%= @member.joinDate %>
-    </p>
+<p>
+  <strong>Join Date:</strong>
+  <%= @member.joinDate %>
+</p>
 
-    <p>
-      <strong>Graduation Date:</strong>
-      <%= @member.gradDate %>
-    </p>
+<p>
+  <strong>Graduation Date:</strong>
+  <%= @member.gradDate %>
+</p>
 
-    <p>
-      <strong>Major:</strong>
-      <%= @member.major %>
-    </p>
+<p>
+  <strong>Major:</strong>
+  <%= @member.major %>
+</p>
 
-    <p>
-      <strong>Active:</strong>
-      <%= @member.active %>
-    </p>
+<p>
+  <strong>Active:</strong>
+  <%= @member.active %>
+</p>
 
-    <p>
-      <strong>Email:</strong>
-      <%= @member.email %>
-    </p>
+<p>
+  <strong>Email:</strong>
+  <%= @member.email %>
+</p>
 
-    <p>
-      <strong>City:</strong>
-      <%= @member.city %>
-    </p>
+<p>
+  <strong>City:</strong>
+  <%= @member.city %>
+</p>
 
-    <%# Hidden to non-Admins %>
-    <p>
-      <strong>Phone Number:</strong>
-      <%= @member.phoneNumber %>
-    </p>
+<%# Hidden to non-Admins %>
+<p>
+  <strong>Phone Number:</strong>
+  <%= @member.phoneNumber %>
+</p>
 
-    <p>
-      <strong>Admin:</strong>
-      <%= @member.admin %>
-    </p>
-    
-    <%= link_to 'Back', members_path, class:"btn btn-outline-dark btn-sm" %>
-    
-  </div>
-</div>
+<p>
+  <strong>Admin:</strong>
+  <%= @member.admin %>
+</p>
+
+<%= link_to 'Back', members_path, class:"btn btn-outline-dark btn-sm" %>
+
 
 
 

@@ -1,10 +1,8 @@
-<div class="container-fluid">
-    <div class="p-3 mb-2 bg-light text-dark">
-        <h1>Editing Member</h1>
 
-        <%= render 'form', member: @member %>
+<h1>Editing Member</h1>
 
-        <%= link_to 'Show', @member %> |
-        <%= link_to 'Back', members_path %>
-    </div>
-</div>
+<%= render 'form', member: @member %>
+
+<%= link_to 'Show', @member %> |
+<%= link_to 'Back', members_path %>
+
