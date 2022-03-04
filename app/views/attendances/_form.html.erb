@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :member_id %>
+  <div class="field form-group">
+    <Label class="form-label">Member</label>
     <% options = options_from_collection_for_select(@members, 'id', 'fname') %>
     <%= form.select :member_id,  options %>
   </div>
 
-  <div class="field">
-    <%= form.label :event_id %>
+  <div class="field form-group">
+    <Label class="form-label">Event</label>
     <% options = options_from_collection_for_select(@events, 'id', 'name') %>
     <%= form.select :event_id,  options %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :attended %>
     <%= form.check_box :attended %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :rsvp %>
     <%= form.check_box :rsvp %>
   </div>
