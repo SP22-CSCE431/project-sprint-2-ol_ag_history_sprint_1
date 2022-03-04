@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+include ActionView::Helpers::UrlHelper
 class Lineage < ApplicationRecord
   belongs_to :member
   validates :member_id, uniqueness: { scope: :member_id }
@@ -19,7 +20,7 @@ class Lineage < ApplicationRecord
 
   def name_check (attribute)
     if Member.where(id: attribute).exists?
-      Member.where(id: attribute).last.fname
+      link = link_to(Member.where(id: attribute).last.fname, Rails.application.routes.url_helpers.member_path(attribute))
     elsif attribute == self.father
       "Head"
     else
