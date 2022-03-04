@@ -152,27 +152,40 @@ RSpec.describe('Authentication', type: :feature) do
 
   # Events Test
   # Most of these atrributes are required
-
+    # time attribute is start_time and end_time
+    # eventID is also not needed for the test
   describe 'Event test 1', type: :feature do
     it 'valid inputs' do
-      testEvent = Event.create!(eventID: 1, name: 'Birthday', location: 'My House', time: '20:00PM')
+      testEvent = Event.create!(name: 'Birthday', description: 'Celebration of the Presidents birthday', location: 'My House', start_time: '03/03/2022 9:00PM', end_time: '03/03/2022 11:00PM')
       visit events_path
-      expect(page).to(have_content(1))
       expect(page).to(have_content('Birthday'))
+      expect(page).to(have_content('Celebration of the Presidents birthday'))
       expect(page).to(have_content('My House'))
-      expect(page).to(have_content('20:00PM'))
+      expect(page).to(have_content('03/03/2022 9:00PM'))
+      expect(page).to(have_content('03/03/2022 11:00PM'))
     end
   end
 
   describe 'Event test 2', type: :feature do
     it 'valid inputs' do
-      testEvent = Event.create!(eventID: 2, name: 'Funeral', location: 'Church', time: '12:00AM')
+      testEvent = Event.create!(name: 'Funeral', description: 'Due to the incident at the party last night, the Presidents funeral will held to lament over the loss of the clubs President', location: 'Church', start_time: '03/06/2022 1:00PM', end_time: '03/06/2022 3:00PM')
       visit events_path
-      expect(page).to(have_content(2))
       expect(page).to(have_content('Funeral'))
+      expect(page).to(have_content('Due to the incident at the party last night, the Presidents funeral will held to lament over the loss of the clubs President'))
       expect(page).to(have_content('Church'))
-      expect(page).to(have_content('12:00AM'))
+      expect(page).to(have_content('03/06/2022 1:00PM'))
+      expect(page).to(have_content('03/06/2022 3:00PM'))
     end
+  end
+
+  describe 'Delete Event', type: :feature do
+    if 'valid inputs' do
+      testEvent = Event.create(name)
+    end
+  end
+
+  describe 'Edit Event', type: :feature do
+
   end
 
   # Lineage
