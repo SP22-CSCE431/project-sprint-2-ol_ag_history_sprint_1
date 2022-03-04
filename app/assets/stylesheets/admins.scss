@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+* {
+  box-sizing: border-box;
+}
+
+.auth-wrapper h2,h3,h4,h5,h6,label,span {
+  font-size: 1.1rem;
+  padding-left: 0px;
+  padding-top: 10px;
+}
+.auth-inner-dark{
+  width: 450px;
+  margin: auto;
+  background: linear-gradient(to bottom right, #404849, #1c1f20, #3b3d3d, #747575);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.auth-inner {
+  width: 450px;
+  margin: auto;
+  background: #52D1DC;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+}
+.auth-inner .dark{
+  background: linear-gradient(to bottom right, #404849, #1c1f20, #3b3d3d, #747575);
+}
+
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+.auth-wrapper h2 {
+  text-align: left;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.custom-control-label {
+  font-weight: 400;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  padding-top: 10px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.forgot-password a {
+  color: #ffffff;
+}
