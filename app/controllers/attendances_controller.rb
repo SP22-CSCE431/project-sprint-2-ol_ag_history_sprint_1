@@ -3,9 +3,18 @@ class AttendancesController < ApplicationController
 
   # GET /attendances or /attendances.json
   def index
-    @attendances = Attendance.all
+    #@attendances = Attendance.all
     @members = Member.all
     @events = Event.all
+
+    @q = Attendance.ransack(params[:q])
+    @attendances = @q.result(distinct: true).includes(:member, :event)
+    
+  end
+
+  def search
+    index
+    render :index
   end
 
   # GET /attendances/1 or /attendances/1.json

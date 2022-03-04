@@ -2,13 +2,15 @@
 
 <h1>Attendances</h1>
 
+<%= render 'attendances/search_form.html.erb' %>
+
 <table>
   <thead>
     <tr>
-      <th>Member</th>
-      <th>Event</th>
-      <th>Attended</th>
-      <th>Rsvp</th>
+      <th><%= sort_link(@q, :member_id, "Member Name") %></th>
+      <th><%= sort_link(@q, :event_id, "Event Name") %></th>
+      <th><%= sort_link(@q, :attended, "Attended") %></th>
+      <th><%= sort_link(@q, :rsvp, "RSVP") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

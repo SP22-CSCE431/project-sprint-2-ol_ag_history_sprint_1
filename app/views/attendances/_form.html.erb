@@ -13,14 +13,12 @@
 
   <div class="field">
     <%= form.label :member_id %>
-    <% options = options_from_collection_for_select(@members, 'id', 'fname', form.object.member_id) %>
-    <%= form.select :member_id,  options %>
+    <%=collection_select( :attendance, :member_id, Member.all, :id, :fname) %>
   </div>
 
   <div class="field">
     <%= form.label :event_id %>
-    <% options = options_from_collection_for_select(@events, 'id', 'name', form.object.event_id) %>
-    <%= form.select :event_id,  options %>
+    <%=collection_select( :attendance, :event_id, Event.all, :id, :name) %>
   </div>
 
   <div class="field">
