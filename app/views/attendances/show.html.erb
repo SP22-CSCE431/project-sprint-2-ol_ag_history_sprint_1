@@ -19,6 +19,9 @@
   <strong>Rsvp:</strong>
   <%= @attendance.rsvp %>
 </p>
+<%= link_to 'Remove Attendance', @attendance, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+<br><br>
 
-<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
-<%= link_to 'Back', attendances_path %>
+<%= link_to 'Edit', edit_attendance_path(@attendance), class:"btn btn-outline-dark btn-sm" %>
+<%= link_to 'Back', attendances_path, class:"btn btn-outline-dark btn-sm" %>
+

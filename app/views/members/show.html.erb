@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Name:</strong>
+  <strong>
   <%= @member.fname %>
   <%= @member.lname %>
+  </strong>
 </p>
 
 <p>
@@ -45,11 +46,9 @@
   <strong>Admin:</strong>
   <%= @member.admin %>
 </p>
+<%= link_to 'Remove Member', @member, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+<br><br>
 
+<%= link_to 'Edit', edit_member_path(@member), class:"btn btn-outline-dark btn-sm" %>
 <%= link_to 'Back', members_path, class:"btn btn-outline-dark btn-sm" %>
 
-
-
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
