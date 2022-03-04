@@ -2,5 +2,7 @@
 
 <%= render 'form', lineage: @lineage %>
 
-<%= link_to 'Show', @lineage %> |
-<%= link_to 'Back', lineages_path %>
+<%= link_to 'Delete', @lineage, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+<br><br>
+<%= link_to 'Show', @lineage, class:"btn btn-outline-dark btn-sm" %>
+<%= link_to 'Back', lineages_path, class:"btn btn-outline-dark btn-sm" %>

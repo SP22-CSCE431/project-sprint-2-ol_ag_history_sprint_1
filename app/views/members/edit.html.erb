@@ -1,6 +1,10 @@
+
 <h1>Editing Member</h1>
 
 <%= render 'form', member: @member %>
 
-<%= link_to 'Show', @member %> |
-<%= link_to 'Back', members_path %>
+<%= link_to 'Delete', @member, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+<br><br>
+<%= link_to 'Show', @member, class:"btn btn-outline-dark btn-sm" %>
+<%= link_to 'Back', members_path, class:"btn btn-outline-dark btn-sm" %>
+
