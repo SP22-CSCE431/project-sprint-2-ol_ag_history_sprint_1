@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field form-group">
-    <Label class="form-label">Member</label>
-    <% options = options_from_collection_for_select(@members, 'id', 'fname') %>
-    <%= form.select :member_id,  options, class:"form-control" %>
+    <%# <Label class="form-label">Member</label> %>
+    <%= form.label :member_id %>
+    <%=collection_select( :due, :member_id, Member.all, :id, :fname) %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Event</label>
-    <% options = options_from_collection_for_select(@events, 'id', 'name') %>
-    <%= form.select :event_id,  options %>
+    <%# <Label class="form-label">Event</label> %>
+    <%= form.label :event_id %>
+    <%=collection_select( :due, :event_id, Event.all, :id, :name) %>
   </div>
 
   <div class="field form-group">

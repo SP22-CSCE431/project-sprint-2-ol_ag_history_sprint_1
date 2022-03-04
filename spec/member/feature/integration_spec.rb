@@ -89,9 +89,9 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'Delete Member', type: :feature do
     it 'valid inputs' do
-      test_member = Member.create!(fname: 'John', lname: 'Henry', joinDate: '01/01/2001', gradDate: "01/01/2010", email: "JH@gmail.com", city: "Austin", admin: 0, major: "CS Major", active: 1)
+      test_member = Member.create!(fname: 'Victor', lname: 'Henry', joinDate: '01/01/2001', gradDate: "01/01/2010", email: "JH@gmail.com", city: "Austin", admin: 0, major: "CS Major", active: 1)
       visit members_path
-      expect(page).to have_content('John')
+      expect(page).to have_content('Victor')
       expect(page).to have_content('Henry')
       expect(page).to have_content('JH@gmail.com')
       expect(page).to have_content('2001-01-01')
@@ -100,8 +100,15 @@ RSpec.describe('Authentication', type: :feature) do
       expect(page).to have_content('false')
       expect(page).to have_content('CS Major')
       expect(page).to have_content('true')
+      click_on 'Destroy', match: :first
 
-      test_member.destroy
+      begin
+        page.driver.browser.switch_to.alert.accept
+      rescue StandardError
+        Selenium::WebDriver::Error::NoSuchAlertError
+      end
+
+      expect(page).not_to have_content('Victor')
     end
   end
 end
