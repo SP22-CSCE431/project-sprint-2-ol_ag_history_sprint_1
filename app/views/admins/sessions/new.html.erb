@@ -1,3 +1,9 @@
-
-<h2>You're Logged out! Log in Using your TAMU Email to Access OlAgs</h2>
-<%= link_to "Sign in with Google", admin_google_oauth2_omniauth_authorize_path, method: :post %>
+<div class="container">
+  <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <h2>You're Logged out!</h2>
+            <p>Log in Using your TAMU Email to Access OlAgs</p>
+            <%= link_to "Sign in with Google", admin_google_oauth2_omniauth_authorize_path, method: :post, class:"btn btn-outline-dark btn-sm" %>
+        </div>
+    </div>
+</div>
