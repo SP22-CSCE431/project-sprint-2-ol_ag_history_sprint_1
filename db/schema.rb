@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_012405) do
+ActiveRecord::Schema.define(version: 2022_03_04_202529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_012405) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "description"
+    t.string "RSVP"
   end
 
   create_table "lineages", force: :cascade do |t|

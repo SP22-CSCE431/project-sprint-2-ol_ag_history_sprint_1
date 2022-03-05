@@ -32,24 +32,6 @@ RSpec.describe('Authentication', type: :feature) do
     end
   end
 
-  describe 'Event test 2', type: :feature do
-    it 'valid inputs' do
-      testEvent = Event.create!(name: 'Funeral', description: 'Due to the incident at the party last night, the Presidents funeral will held to lament over the loss of the clubs President', location: 'Church', start_time: '03/06/2022 1:00PM', end_time: '03/06/2022 3:00PM')
-      visit new_event_path
-      fill_in 'Name', with: 'Funeral'
-      fill_in 'Description', with: 'Due to the incident at the party last night, the Presidents funeral will held to lament over the loss of the clubs President'
-      fill_in 'Location', with: 'Church'
-      fill_in 'Start time', with: DateTime.new(2022,3,6,13,0,0)
-      fill_in 'End time', with: DateTime.new(2022,3,6,15,0,0)
-      click_on 'Create Event'
-      expect(page).to(have_content('Funeral'))
-      expect(page).to(have_content('Due to the incident at the party last night, the Presidents funeral will held to lament over the loss of the clubs President'))
-      expect(page).to(have_content('Church'))
-      expect(page).to(have_content('03/06/2022 01:00PM'))
-      expect(page).to(have_content('03/06/2022 03:00PM'))
-    end
-  end
-
   describe 'Delete Event', type: :feature do
     it 'valid inputs' do
         testEvent = Event.create!(name: 'Birthday', description: 'Celebration of the Presidents birthday', location: 'My House', start_time: '03/03/2022 9:00PM', end_time: '03/03/2022 11:00PM')
@@ -87,6 +69,6 @@ RSpec.describe('Authentication', type: :feature) do
     end
   end
 
-  
+
 
 end
