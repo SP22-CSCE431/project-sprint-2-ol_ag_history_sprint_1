@@ -10,55 +10,25 @@ require 'rails_helper'
 # end
 OmniAuth.config.test_mode = true
 
-RSpec.describe(Lineage, type: :model) do
-  testMember1 = Member.create!(fname: 'John', lname: 'Henry', email: 'JohnHenry@email.com')
-  testMember2 = Member.create!(fname: 'Red', lname: 'Henry', email: 'JohnHenry@email.com')
-  testMember3 = Member.create!(fname: 'Ned', lname: 'Henry', email: 'JohnHenry@email.com')
+RSpec.describe(Attendance, type: :model) do
+  testMember1 = Member.create!(fname: "John", lname: "Henry", email: "JohnHenry@email.com")
+  testEvent1 = Event.create!(name: "Funeral", location: "Church", start_time: "03/03/2022 10:00PM", end_time: "03/03/2022 11:00PM", description: "N/A")
 
   subject do
-    described_class.new(member_id: testMember1.id, father: nil, son: nil)
+    described_class.new(member_id: testMember1.id, event_id: testEvent1.id, rsvp: "false", attended: "false")
   end
 
-  it 'Big and Little nil' do
-    expect(subject).not_to(be_valid)
-  end
-
-  it 'Little nil' do
-    subject.father = testMember2.id
+  it 'No RSVP and no Attended' do
     expect(subject).to(be_valid)
   end
 
-  it 'Big nil' do
-    subject.son = testMember2.id
+  it 'RSVP' do
+    subject.rsvp = "true"
     expect(subject).to(be_valid)
   end
 
-  it 'No duplicates in instance' do
-    subject.father = testMember1.id
-    expect(subject).not_to(be_valid)
-  end
-
-  it 'Same Member id' do
-    testlineage = described_class.create!(member_id: testMember2.id, father: testMember1.id, son: testMember3.id)
-    subject.member_id = testMember2.id
-    expect(subject).not_to(be_valid)
-  end
-
-  it 'Same Big' do
-    testlineage = described_class.create!(member_id: testMember2.id, father: testMember3.id, son: testMember1.id)
-    subject.father = testMember3.id
-    expect(subject).not_to(be_valid)
-  end
-
-  it 'Same Little' do
-    testlineage = described_class.create!(member_id: testMember2.id, father: testMember1.id, son: testMember3.id)
-    subject.son = testMember3.id
-    expect(subject).not_to(be_valid)
-  end
-
-  it 'Common inputs' do
-    subject.father = testMember2.id
-    subject.son = testMember3.id
+  it 'Attended' do
+    subject.attended = "true"
     expect(subject).to(be_valid)
   end
 end
