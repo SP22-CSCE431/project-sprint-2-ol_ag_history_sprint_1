@@ -18,13 +18,14 @@ OmniAuth.config.silence_get_warning = true
 RSpec.describe('Authentication', type: :feature) do
   before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_user]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_admin]
     # visit new_admin_session_path click_on "Sign in with Google"
     visit admin_google_oauth2_omniauth_authorize_path
     # Permission.create!(description: 'admin') if Permission.where(description: 'admin').first.nil?
     # unless Admin.where(email: 'userdoe@example.com').first.nil? == false
     #   Admin.create!(email: 'userdoe@example.com', full_name: 'User Doe', uid: '123456789', avatar_url: 'https://lh3.googleusercontent.com/url/photo.jpg')
     # end
+    Member.create!(fname: 'Admin', lname: 'Doe', email: 'admindoe@tamu.edu')
   end
 
   # Lineage
@@ -38,7 +39,7 @@ RSpec.describe('Authentication', type: :feature) do
       select 'John', :from => 'lineage_member_id', match: :first
       select 'Tim', :from => 'lineage_father', match: :first
       select 'None', :from => 'lineage_son', match: :first
-      click_on 'Create Lineage'
+      click_on 'Submit'
       visit lineages_path
 
       expect(page).to(have_content('John'))
@@ -56,7 +57,7 @@ RSpec.describe('Authentication', type: :feature) do
       select 'John', :from => 'lineage_member_id', match: :first
       select 'Tim', :from => 'lineage_father', match: :first
       select 'Jade', :from => 'lineage_son', match: :first
-      click_on 'Create Lineage'
+      click_on 'Submit'
       visit lineages_path
       expect(page).to(have_content('John'))
       expect(page).to(have_content('Tim'))
@@ -80,7 +81,7 @@ RSpec.describe('Authentication', type: :feature) do
       visit edit_lineage_path(id: testLineage.id)
       select 'Slim', :from => 'lineage_member_id', match: :first
       select 'John', :from => 'lineage_father', match: :first
-      click_on 'Update Lineage'
+      click_on 'Submit'
       visit lineages_path
       expect(page).to(have_content('Slim'))
       expect(page).not_to(have_content('Tim'))
@@ -97,7 +98,7 @@ RSpec.describe('Authentication', type: :feature) do
       select 'John', :from => 'lineage_member_id', match: :first
       select 'Tim', :from => 'lineage_father', match: :first
       select 'Jade', :from => 'lineage_son', match: :first
-      click_on 'Create Lineage'
+      click_on 'Submit'
       visit lineages_path
 
       expect(page).to(have_content('John'))

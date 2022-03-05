@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field form-group">
-    <Label class="form-label">Member</label>
-    <%= collection_select( :lineage, :member_id, Member.all, :id, :fname, {}, { :multiple => false}) %>
+    <Label class="form-label"> <%= form.label :member_id, "Member" %> </label>
+    <%= collection_select( :lineage, :member_id, Member.all, :id, :full_name, {}, { :multiple => false}) %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Father</label>
-    <%=collection_select( :lineage, :father, Member.all.where.not(id: lineage.member_id), :id, :fname, include_blank: 'None') %>
+    <Label class="form-label"> <%= form.label :father, "Father" %> </label>
+    <%=collection_select( :lineage, :father, Member.all, :id, :full_name, include_blank: 'None') %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Son</label>
-    <%=collection_select( :lineage, :son, Member.all, :id, :fname, include_blank: 'None') %>
+    <Label class="form-label"> <%= form.label :son, "Son" %> </label>
+    <%=collection_select( :lineage, :son, Member.all, :id, :full_name, include_blank: 'None') %>
   </div>
 
   <div class="actions">
