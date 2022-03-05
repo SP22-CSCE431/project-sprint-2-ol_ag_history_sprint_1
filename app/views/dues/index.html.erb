@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Dues</h1>
-
+<%= Due.new.due_mail%>
 <%= render 'dues/search_form.html.erb' %>
 
 <div class="container">
@@ -25,13 +25,7 @@
                 <td><%= Member.where(id: due.member_id).last.fname %></td>
                 <td><%= Event.where(id: due.event_id).last.name %></td>
                 <td><%= due.dueAmount %></td>
-                <td>
-                <% if due.paid? %>
-                  <%= "\u2705" %>
-                <% else %>
-                  <%= "\u274C" %>
-                <% end %>
-                </td>
+                <td><%= due.paid_show(due.paid?) %></td>
                 <td><%= link_to 'Show', due %></td>
                 <td><%= link_to 'Edit', edit_due_path(due) %></td>
                 <td><%= link_to 'Destroy', due, method: :delete, data: { confirm: 'Are you sure?' } %></td>

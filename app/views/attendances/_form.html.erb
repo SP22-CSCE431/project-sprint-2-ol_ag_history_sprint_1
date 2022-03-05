@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field form-group">
-    <Label class="form-label">Member</label>
-    <%=collection_select( :attendance, :member_id, Member.all, :id, :fname) %>
+    <Label class="form-label"> <%= form.label :member, "Member" %> </label>
+    <%=collection_select( :attendance, :member_id, Member.all, :id, :full_name) %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Event</label>
+    <Label class="form-label"> <%= form.label :event, "Event" %> </label>
     <%=collection_select( :attendance, :event_id, Event.all, :id, :name) %>
   </div>
 

@@ -14,7 +14,7 @@
   <div class="field form-group">
     <%# <Label class="form-label">Member</label> %>
     <%= form.label :member_id %>
-    <%=collection_select( :due, :member_id, Member.all, :id, :fname) %>
+    <%=collection_select( :due, :member_id, Member.all, :id, :full_name) %>
   </div>
 
   <div class="field form-group">
@@ -24,12 +24,12 @@
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Amount</label>
+    <Label class="form-label"> <%= form.label :dueAmount, "Amount" %> </label>
     <%= form.number_field :dueAmount, :step => "0.01", class:"form-control" %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Paid</label>
+    <Label class="form-label"> <%= form.label :paid, "Paid" %> </label>
     <%= form.check_box :paid %>
   </div>
 
