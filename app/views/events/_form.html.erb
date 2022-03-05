@@ -11,27 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :eventID %>
-    <%= form.number_field :eventID %>
+  <div class="field form-group">
+    <Label class="form-label">Name</label>
+    <%= form.text_field :name, class:"form-control", placeholder:"Name"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+    <Label class="form-label">description</label>
+    <%= form.text_field :description, class:"form-control", placeholder:"This event is..."  %>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+  <div class="field form-group">
+    <Label class="form-label">location</label>
+    <%= form.text_field :location, class:"form-control", placeholder:"Where"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.text_field :time %>
+  <div class="field form-group">
+    <Label class="form-label">Start Time</label>
+    <%= form.datetime_field :start_time, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <Label class="form-label">End Time</label>
+    <%= form.datetime_field :end_time, class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class:"btn btn-outline-dark" %>
   </div>
 <% end %>
