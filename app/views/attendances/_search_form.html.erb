@@ -1,0 +1,17 @@
+<%= search_form_for @q, url: search_attendances_path,
+                        html: { method: :post} do |f| %>
+                          
+    <%= f.label :member_fname_cont %>
+    <%= f.search_field :member_fname_cont %>
+
+    <%= f.label :event_name_cont %>
+    <%= f.search_field :event_name_cont %>
+
+    <%= f.label :attended_eq %>
+    <%= f.search_field :attended_eq %>
+
+    <%= f.label :rsvp_eq %>
+    <%= f.search_field :rsvp_eq %>
+  
+    <%= f.submit %>
+  <% end %>

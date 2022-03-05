@@ -2,5 +2,7 @@
 
 <%= render 'form', attendance: @attendance %>
 
-<%= link_to 'Show', @attendance %> |
-<%= link_to 'Back', attendances_path %>
+<%= link_to 'Delete', @attendance, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>\
+<br><br>
+<%= link_to 'Show', @attendance, class:"btn btn-outline-dark btn-sm" %> 
+<%= link_to 'Back', attendances_path, class:"btn btn-outline-dark btn-sm" %>

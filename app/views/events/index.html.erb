@@ -1,20 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive fixed-table-body">
+        <th>Calendar View</th>
 
-<th>Calendar View</th>
+        <%= month_calendar(events: @events) do |date, events| %>
+          <%= date.strftime("%m/%d") %>
 
-<%= month_calendar(events: @events) do |date, events| %>
-  <%= date.strftime("%m/%d") %>
-
-  <% events.each do |event | %>
-    <div>
-      <%= event.name %>
-      <%= "@"%>
-      <%= event.start_time.strftime("%I:%M%p")%>
-      <%= link_to "Details", event%>
+          <% events.each do |event | %>
+            <div>
+              <%= event.name %>
+              <%= "@"%>
+              <%= event.start_time.strftime("%I:%M%p")%>
+              <%= link_to "Details", event%>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
+      
+<br>
 
-<%= link_to 'Add New Event', new_event_path %>
+<%= link_to 'Add New Event', new_event_path, class:"btn btn-outline-dark btn-sm" %>
