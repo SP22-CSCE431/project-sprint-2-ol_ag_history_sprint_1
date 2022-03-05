@@ -4,32 +4,40 @@
 
 <%= render 'attendances/search_form.html.erb' %>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :member_id, "Member Name") %></th>
-      <th><%= sort_link(@q, :event_id, "Event Name") %></th>
-      <th><%= sort_link(@q, :attended, "Attended") %></th>
-      <th><%= sort_link(@q, :rsvp, "RSVP") %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive fixed-table-body">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Event</th>
+              <th>Attended</th>
+              <th>Rsvp</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @attendances.each do |attendance| %>
-      <tr>
-        <td><%= Member.where(id: attendance.member_id).last.fname %></td>
-        <td><%= Event.where(id: attendance.event_id).last.name %></td>
-        <td><%= attendance.attended %></td>
-        <td><%= attendance.rsvp %></td>
-        <td><%= link_to 'Show', attendance %></td>
-        <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-        <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @attendances.each do |attendance| %>
+              <tr>
+                <td><%= Member.where(id: attendance.member_id).last.fname %></td>
+                <td><%= Event.where(id: attendance.event_id).last.name %></td>
+                <td><%= attendance.attended %></td>
+                <td><%= attendance.rsvp %></td>
+                <td><%= link_to 'Show', attendance %></td>
+                <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+                <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Attendance', new_attendance_path %>
+<%= link_to 'New Attendance', new_attendance_path, class:"btn btn-outline-dark btn-sm" %>

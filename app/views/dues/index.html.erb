@@ -4,38 +4,45 @@
 
 <%= render 'dues/search_form.html.erb' %>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :member_id, "Member Name") %></th>
-      <th><%= sort_link(@q, :event_id, "Event Name") %></th>
-      <th><%= sort_link(@q, :dueAmount, "Due Amount") %></th>
-      <th><%= sort_link(@q, :paid, "Paid") %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive fixed-table-body">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Event</th>
+              <th>Due Amount</th>
+              <th>Paid</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @dues.each do |due| %>
-      <tr>
-        <td><%= Member.where(id: due.member_id).last.fname %></td>
-        <td><%= Event.where(id: due.event_id).last.name %></td>
-        <td><%= due.dueAmount %></td>
-        <td>
-          <% if due.paid? %>
-            <%= "\u2705" %>
-          <% else %>
-            <%= "\u274C" %>
-          <% end %>
-        </td>
-        <td><%= due.paid %></td>
-        <td><%= link_to 'Show', due %></td>
-        <td><%= link_to 'Edit', edit_due_path(due) %></td>
-        <td><%= link_to 'Destroy', due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @dues.each do |due| %>
+              <tr>
+                <td><%= Member.where(id: due.member_id).last.fname %></td>
+                <td><%= Event.where(id: due.event_id).last.name %></td>
+                <td><%= due.dueAmount %></td>
+                <td>
+                <% if due.paid? %>
+                  <%= "\u2705" %>
+                <% else %>
+                  <%= "\u274C" %>
+                <% end %>
+                </td>
+                <td><%= link_to 'Show', due %></td>
+                <td><%= link_to 'Edit', edit_due_path(due) %></td>
+                <td><%= link_to 'Destroy', due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
 

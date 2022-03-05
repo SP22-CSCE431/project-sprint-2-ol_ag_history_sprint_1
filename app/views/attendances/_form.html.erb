@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :member_id %>
+  <div class="field form-group">
+    <Label class="form-label">Member</label>
     <%=collection_select( :attendance, :member_id, Member.all, :id, :fname) %>
   </div>
 
-  <div class="field">
-    <%= form.label :event_id %>
+  <div class="field form-group">
+    <Label class="form-label">Event</label>
     <%=collection_select( :attendance, :event_id, Event.all, :id, :name) %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :attended %>
     <%= form.check_box :attended %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :rsvp %>
     <%= form.check_box :rsvp %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class:"btn btn-outline-dark" %>
   </div>
 <% end %>
