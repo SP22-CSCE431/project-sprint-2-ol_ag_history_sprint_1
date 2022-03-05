@@ -23,6 +23,10 @@
   <%= @event.end_time.strftime("%m/%d/%Y %I:%M%p") %>
 </p>
 
+<p>
+  
+</p>
+
 <%= link_to 'Edit Event', edit_event_path(@event) %> |
 <%= link_to 'Remove Event', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Return to Events Calendar', events_path %>

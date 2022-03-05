@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Dues</h1>
-
+<%=Due.new.due_mail%>
 <table>
   <thead>
     <tr>
@@ -20,14 +20,15 @@
         <td><%= Event.where(id: due.event_id).last.name %></td>
         <td><%= due.dueAmount %></td>
         <td><%= due.paid %></td>
+        <% if Member.find_by(:email =>current_admin.email).admin? %>
         <td><%= link_to 'Show', due %></td>
         <td><%= link_to 'Edit', edit_due_path(due) %></td>
         <td><%= link_to 'Destroy', due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Due', new_due_path %> |

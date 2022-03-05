@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :member_id %>
-    <%= collection_select( :lineage, :member_id, Member.all, :id, :fname, {}, { :multiple => false}) %>
+    <%= collection_select( :lineage, :member_id, Member.all, :id, :full_name, {}, { :multiple => false}) %>
   </div>
 
   <div class="field">
     <%= form.label :father %>
-    <%=collection_select( :lineage, :father, Member.all.where.not(id: lineage.member_id), :id, :fname, include_blank: 'None') %>
+    <%=collection_select( :lineage, :father, Member.all, :id, :full_name, include_blank: 'None') %>
   </div>
 
   <div class="field">
     <%= form.label :son %>
-    <%=collection_select( :lineage, :son, Member.all, :id, :fname, include_blank: 'None') %>
+    <%=collection_select( :lineage, :son, Member.all, :id, :full_name, include_blank: 'None') %>
   </div>
 
   <div class="actions">

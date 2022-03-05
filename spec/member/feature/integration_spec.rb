@@ -18,13 +18,14 @@ OmniAuth.config.silence_get_warning = true
 RSpec.describe('Authentication', type: :feature) do
   before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_user]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_admin]
     # visit new_admin_session_path click_on "Sign in with Google"
     visit admin_google_oauth2_omniauth_authorize_path
     # Permission.create!(description: 'admin') if Permission.where(description: 'admin').first.nil?
     # unless Admin.where(email: 'userdoe@example.com').first.nil? == false
     #   Admin.create!(email: 'userdoe@example.com', full_name: 'User Doe', uid: '123456789', avatar_url: 'https://lh3.googleusercontent.com/url/photo.jpg')
     # end
+    Member.create!(fname: 'Admin', lname: 'Doe', email: "admindoe@tamu.edu")
   end
 
   # Members Test

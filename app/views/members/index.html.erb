@@ -32,12 +32,22 @@
         <td><%= member.admin %></td>
         <td><%= member.major %></td>
         <td><%= member.active %></td>
+        <% if Member.find_by(:email =>current_admin.email).admin? %>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
+  <%= 
+    ar = ''
+    Member.where(admin: 1).find_each do |m|
+      ar += m.email
+      ar += ','
+    end
+    mail_to ar.chop
+  %>
 </table>
 
 <br>
