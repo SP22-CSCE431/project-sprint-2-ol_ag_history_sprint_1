@@ -22,9 +22,9 @@
   <strong> End Time: </strong>
   <%= @event.end_time.strftime("%m/%d/%Y %I:%M%p") %>
 </p>
-<%= link_to 'Remove Event', @event, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
-<br><br>
-<%# <% if Member.find_by(:email =>current_admin.email).admin? %> %>
+<% if Member.find_by(:email =>current_admin.email).admin? %>
+  <%= link_to 'Remove Event', @event, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br><br>
   <%= link_to 'Edit Event', edit_event_path(@event), class:"btn btn-outline-dark btn-sm" %>
-<%# <%end%> %>
+<%end %>
 <%= link_to 'Return to Events Calendar', events_path, class:"btn btn-outline-dark btn-sm" %>
