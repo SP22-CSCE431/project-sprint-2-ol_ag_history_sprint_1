@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :calendar, only: [:show],controller: :calendar
   
-  root "members#index"
+  #root "members#index"
   
   get "/members/:id" , to: "members#show"
   get "/lineages/:id" , to: "lineages#show"
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get '/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
     get "/members/:id" , to: "members#show"
     get "/lineages/:id" , to: "lineages#show"
-    # root "dashboards#show"
+    root "dashboards#show"
   end
 
   get "/events/:id", to: "events#show"
