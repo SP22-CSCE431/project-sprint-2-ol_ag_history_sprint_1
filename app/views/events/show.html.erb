@@ -22,9 +22,38 @@
   <strong> End Time: </strong>
   <%= @event.end_time.strftime("%m/%d/%Y %I:%M%p") %>
 </p>
+<<<<<<< HEAD
 <% if Member.find_by(:email =>current_admin.email).admin? %>
   <%= link_to 'Remove Event', @event, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
   <br><br>
   <%= link_to 'Edit Event', edit_event_path(@event), class:"btn btn-outline-dark btn-sm" %>
 <%end %>
+=======
+<%= link_to 'Remove Event', @event, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+<br><br>
+
+<p>
+  <strong> Attended: </strong>
+  <%= Attendance.where(:event  => @event.id, :attended => 1).count %>
+</p>
+
+<p>
+  <strong> RSVP: </strong>
+  <%= Attendance.where(:event  => @event.id, :rsvp => 1).count %>
+</p>
+
+<p>
+  <strong> RSVP Members: </strong>
+  <% Attendance.where(:event  => @event.id, :rsvp => 1).each do |check| %>
+    <table>
+    <tr>
+    <td> <%= Member.where(id: check.member_id).last.fname %></td>
+    <td> <%= Member.where(id: check.member_id).last.lname %></td>
+    </tr>
+  <% end %>
+  </table>
+</p>
+<%= link_to 'Edit Event', edit_event_path(@event), class:"btn btn-outline-dark btn-sm" %>
+>>>>>>> 1a4fa2778113fd5cc8e7e07f8863257f83edbc5c
 <%= link_to 'Return to Events Calendar', events_path, class:"btn btn-outline-dark btn-sm" %>
+

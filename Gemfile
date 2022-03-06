@@ -65,7 +65,8 @@ end
 gem 'devise'
 gem 'omniauth', '>= 1.9.1'
 gem 'omniauth-google-oauth2'
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-rails_csrf_protection'
+gem 'seed_dump'
 gem 'ransack'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
