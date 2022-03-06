@@ -39,5 +39,6 @@
 </div>
 
 <br>
-
-<%= link_to 'New Attendance', new_attendance_path, class:"btn btn-outline-dark btn-sm" %>
+<% if Member.find_by(:email =>current_admin.email).admin? %>
+  <%= link_to 'New Attendance', new_attendance_path, class:"btn btn-outline-dark btn-sm" %>
+<%end %>

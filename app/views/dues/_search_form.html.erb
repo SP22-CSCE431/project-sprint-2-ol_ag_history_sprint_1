@@ -1,14 +1,22 @@
 <%= search_form_for @q, url: search_dues_path,
-                        html: { method: :post} do |f| %>
-                          
-    <%= f.label :member_fname_cont %>
-    <%= f.search_field :member_fname_cont %>
-
-    <%= f.label :event_name_cont %>
-    <%= f.search_field :event_name_cont %>
-
-    <%= f.label :paid_eq %>
-    <%= f.search_field :paid_eq %>
-  
-    <%= f.submit %>
+    html: { method: :post} do |f| %>
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col">
+        <%= f.label :member_fname_cont, "Members First Name" %>
+        <%= f.search_field :member_fname_cont %>
+      </div>
+      <div class="col">
+        <%= f.label :event_name_cont, "Event Name" %>
+        <%= f.search_field :event_name_cont %>
+      </div>
+      <div class="col">   
+        <%= f.label :paid_eq, "Paid?" %>
+        <%= f.search_field :paid_eq, placeholder:"True/False" %>
+      </div>
+      <div class = "col">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>              
   <% end %>
