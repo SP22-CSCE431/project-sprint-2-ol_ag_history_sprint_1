@@ -12,37 +12,37 @@
   <% end %>
 
   <div class="field form-group">
-    <Label class="form-label">First Name</label>
+    <Label class="form-label"> <%= form.label :fname, "First Name" %> </label>
     <%= form.text_field :fname, class:"form-control", placeholder:"First Name" %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Last Name</label>
+    <Label class="form-label"> <%= form.label :lname, "Last Name" %> </label>
     <%= form.text_field :lname, class:"form-control", placeholder:"Last Name" %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Join Date</label>
+    <Label class="form-label"> <%= form.label :joinDate, "Join Date" %> </label>
     <%= form.date_field :joinDate, class:"form-control" %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Graduation Date</label>
+    <Label class="form-label"> <%= form.label :gradDate, "Graduation Date" %> </label>
     <%= form.date_field :gradDate, class:"form-control" %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Email Address</label>
+    <Label class="form-label"> <%= form.label :email, "Email Address" %> </label>
     <%= form.text_field :email, class:"form-control", placeholder:"example@tamu.edu" %>
   </div>
 
   <div class="field form-group">
-    <Label class="form-label">Phone Number</label>
+    <Label class="form-label"> <%= form.label :phoneNumber, "Phone Number" %> </label>
     <%= form.text_field :phoneNumber, class:"form-control", placeholder:"5555555555" %>
   </div>
 
   <div class="field form-group">
-   <Label class="form-label">City</label>
+   <Label class="form-label"> <%= form.label :city, "City" %> </label>
     <%= form.text_field :city, class:"form-control", placeholder:"City" %>
   </div>
 
