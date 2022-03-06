@@ -39,7 +39,8 @@
 </div>
 
 <br>
-
-<%= link_to 'New Due', new_due_path %> |
-<%= link_to 'Members Page', members_path %> |
-<%= link_to 'Events Page', events_path %>
+<%# <% if Member.find_by(:email =>current_admin.email).admin? %> %>
+  <%= link_to 'New Due', new_due_path %>
+  <%= link_to 'Members Page', members_path %>
+  <%= link_to 'Events Page', events_path %>
+<%# <%end%> %>

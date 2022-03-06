@@ -18,11 +18,11 @@
               <th>Major</th>
               <th>Active</th>
               <%# Hidden to Members %>
-              <% if Member.find_by(:email =>current_admin.email).admin? %>
+              <%# <% if Member.find_by(:email =>current_admin.email).admin? %> %>
                 <th>Phone Number</th>
                 <th>Admin</th>
                 <th colspan="3"></th>
-              <%end%>
+              <%# <%end%> %>
             </tr>
           </thead>
 
@@ -37,13 +37,13 @@
                 <td><%= member.major %></td>
                 <td><%= member.active %></td>
                 <%# Hidden to Members %>
-                <% if Member.find_by(:email =>current_admin.email).admin? %>
+                <%# <% if Member.find_by(:email =>current_admin.email).admin? %> %>
                   <td><%= member.phoneNumber %></td>
                   <td><%= member.admin %></td>
                   <td><%= link_to 'Show', member %></td>
                   <td><%= link_to 'Edit', edit_member_path(member) %></td>
                   <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <%end%>
+                <%# <%end%> %>
               </tr>
             <% end %>
           </tbody>
@@ -54,5 +54,6 @@
 </div>
 
 <br>
-
-<%= link_to 'New Member', new_member_path, class:"btn btn-outline-dark btn-sm" %>
+<%# <% if Member.find_by(:email =>current_admin.email).admin? %> %>
+  <%= link_to 'New Member', new_member_path, class:"btn btn-outline-dark btn-sm" %>
+<%# <%end%> %>
