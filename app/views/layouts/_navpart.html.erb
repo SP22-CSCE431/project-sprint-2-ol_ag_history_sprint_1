@@ -22,18 +22,20 @@
         <li class="nav-item">
           <%= link_to "Attendance", attendances_path, class:"nav-link" %>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Add
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to 'New Member', new_member_path, class:"dropdown-item" %></li>
-            <li><%= link_to 'New Event', new_event_path, class:"dropdown-item" %></li>
-            <li><%= link_to 'New Lineage', new_lineage_path, class:"dropdown-item" %></li>
-            <li><%= link_to 'New Dues', new_due_path, class:"dropdown-item" %></li>
-            <li><%= link_to 'New Attendance', new_attendance_path, class:"dropdown-item" %></li>
-          </ul>
-        </li>
+        <%# <% if Member.find_by(:email =>current_admin.email).admin? %> %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Add
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to 'New Member', new_member_path, class:"dropdown-item" %></li>
+              <li><%= link_to 'New Event', new_event_path, class:"dropdown-item" %></li>
+              <li><%= link_to 'New Lineage', new_lineage_path, class:"dropdown-item" %></li>
+              <li><%= link_to 'New Dues', new_due_path, class:"dropdown-item" %></li>
+              <li><%= link_to 'New Attendance', new_attendance_path, class:"dropdown-item" %></li>
+            </ul>
+          </li>
+        <%# <%end%> %>
       </ul>
       <form class="d-flex">
         <ul class="navbar-nav">
