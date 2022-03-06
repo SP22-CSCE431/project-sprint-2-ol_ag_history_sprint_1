@@ -1,43 +1,19 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Fname:</strong>
+  <strong>
   <%= @member.fname %>
-</p>
-
-<p>
-  <strong>Lname:</strong>
   <%= @member.lname %>
+  </strong>
 </p>
 
 <p>
-  <strong>Joindate:</strong>
+  <strong>Join Date:</strong>
   <%= @member.joinDate %>
 </p>
 
 <p>
-  <strong>Gradedate:</strong>
+  <strong>Graduation Date:</strong>
   <%= @member.gradDate %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @member.email %>
-</p>
-
-<p>
-  <strong>Phonenumber:</strong>
-  <%= @member.phoneNumber %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @member.city %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @member.admin %>
 </p>
 
 <p>
@@ -50,5 +26,29 @@
   <%= @member.active %>
 </p>
 
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<p>
+  <strong>Email:</strong>
+  <%= @member.email %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @member.city %>
+</p>
+
+<%# Hidden to non-Admins %>
+<p>
+  <strong>Phone Number:</strong>
+  <%= @member.phoneNumber %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @member.admin %>
+</p>
+<%= link_to 'Remove Member', @member, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+<br><br>
+
+<%= link_to 'Edit', edit_member_path(@member), class:"btn btn-outline-dark btn-sm" %>
+<%= link_to 'Back', members_path, class:"btn btn-outline-dark btn-sm" %>
+

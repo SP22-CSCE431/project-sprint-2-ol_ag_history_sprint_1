@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_012405) do
+ActiveRecord::Schema.define(version: 2022_03_05_014529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2022_03_03_012405) do
   create_table "dues", force: :cascade do |t|
     t.integer "member_id"
     t.integer "event_id"
-    t.integer "dueAmount"
+    t.float "dueAmount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "paid"

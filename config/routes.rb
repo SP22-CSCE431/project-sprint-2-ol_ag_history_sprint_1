@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :attendances
-  resources :dues
+  resources :attendances do
+    collection do
+      match 'search' => 'attendances#search', via: [:get, :post], as: :search
+    end
+  end
+  resources :dues do
+    collection do
+      match 'search' => 'dues#search', via: [:get, :post], as: :search
+    end
+  end
   resources :lineages
   resources :events
   resources :members
