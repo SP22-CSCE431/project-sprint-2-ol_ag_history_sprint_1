@@ -1,6 +1,10 @@
+<% if Member.find_by(:email =>current_admin.email).admin? %>
 <h1>Editing Member</h1>
 
 <%= render 'form', member: @member %>
 
 <%= link_to 'Show', @member %> |
 <%= link_to 'Back', members_path %>
+<% else %>
+status: 403 'Forbidden'
+<% end %>
