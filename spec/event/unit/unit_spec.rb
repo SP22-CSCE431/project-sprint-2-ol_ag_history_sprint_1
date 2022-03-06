@@ -20,24 +20,4 @@ RSpec.describe(Event, type: :model) do
     subject.end_time = nil
     expect(subject).not_to(be_valid)
   end
-  
-  it 'Same start and end time' do
-    subject.start_time = subject.end_time
-    subject.name = nil
-    expect(subject).not_to(be_valid)
-    #assert_equal subject.start_time, subject.end_time
-  end
-
-  it 'End time before start time' do
-    subject.start_time = subject.end_time
-    subject.name = nil
-    expect(subject).not_to(be_valid)
-  end
-
-  it 'Start and end time in past' do
-    subject.start_time = subject.end_time
-    subject.name = nil
-    expect(subject).not_to(be_valid)
-  end
-
-  end
+end
