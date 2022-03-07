@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_014529) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "description"
+    t.string "RSVP"
   end
 
   create_table "lineages", force: :cascade do |t|
