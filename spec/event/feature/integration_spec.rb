@@ -21,32 +21,34 @@ RSpec.describe('Authentication', type: :feature) do
       fill_in 'Name', with: 'Birthday'
       fill_in 'Description', with: 'Celebration of the Presidents birthday'
       fill_in 'Location', with: 'My House'
-      fill_in 'Start time', with: DateTime.new(2022,3,3,17,0,0)
-      fill_in 'End time', with: DateTime.new(2022,3,3,21,0,0)
-      click_on 'Create Event'
+      fill_in 'Start Time', with: DateTime.new(2023,3,3,17,0,0)
+      fill_in 'End Time', with: DateTime.new(2023,3,3,21,0,0)
+      click_on 'Submit'
       expect(page).to(have_content('Birthday'))
       expect(page).to(have_content('Celebration of the Presidents birthday'))
       expect(page).to(have_content('My House'))
-      expect(page).to(have_content('03/03/2022 05:00PM'))
-      expect(page).to(have_content('03/03/2022 09:00PM'))
+      expect(page).to(have_content('03/03/2023 05:00PM'))
+      expect(page).to(have_content('03/03/2023 09:00PM'))
     end
   end
 
   describe 'Delete Event', type: :feature do
     it 'valid inputs' do
-        testEvent = Event.create!(name: 'Birthday', description: 'Celebration of the Presidents birthday', location: 'My House', start_time: '03/03/2022 9:00PM', end_time: '03/03/2022 11:00PM')
+        testEvent = Event.create!(name: 'Birthday', description: 'Celebration of the Presidents birthday', location: 'My House', start_time: '03/03/2023 9:00PM', end_time: '03/03/2023 11:00PM')
         visit new_event_path
         fill_in 'Name', with: 'Birthday'
         fill_in 'Description', with: 'Celebration of the Presidents birthday'
         fill_in 'Location', with: 'My House'
-        fill_in 'Start time', with: DateTime.new(2022,3,3,21,0,0)
-        fill_in 'End time', with: DateTime.new(2022,3,3,23,0,0)
-        click_on 'Create Event'
+        fill_in 'Start Time', with: DateTime.new(2023,3,3,21,0,0)
+        fill_in 'End Time', with: DateTime.new(2023,3,3,23,0,0)
+        click_on 'Submit'
         expect(page).to(have_content('Birthday'))
         expect(page).to(have_content('Celebration of the Presidents birthday'))
         expect(page).to(have_content('My House'))
-        expect(page).to(have_content('03/03/2022 09:00PM'))
-        expect(page).to(have_content('03/03/2022 11:00PM'))
+        expect(page).to(have_content('03/03/2023 09:00PM'))
+        expect(page).to(have_content('03/03/2023 11:00PM'))
+        visit edit_event_path(id: testEvent.id)
+        click_on 'Remove Event'
         testEvent.destroy
     end
   end
@@ -58,14 +60,14 @@ RSpec.describe('Authentication', type: :feature) do
         fill_in 'Name', with: 'Celebration'
         fill_in 'Description', with: 'Celebrating the welcoming of the new President'
         fill_in 'Location', with: 'My House'
-        fill_in 'Start time', with: DateTime.new(2022,3,12,16,0,0)
-        fill_in 'End time', with: DateTime.new(2022,3,12,19,0,0)
-        click_on 'Update Event'
+        fill_in 'Start Time', with: DateTime.new(2023,3,12,16,0,0)
+        fill_in 'End Time', with: DateTime.new(2023,3,12,19,0,0)
+        click_on 'Submit'
         expect(page).to(have_content('Celebration'))
         expect(page).to(have_content('Celebrating the welcoming of the new President'))
         expect(page).to(have_content('My House'))
-        expect(page).to(have_content('03/12/2022 04:00PM'))
-        expect(page).to(have_content('03/12/2022 07:00PM'))
+        expect(page).to(have_content('03/12/2023 04:00PM'))
+        expect(page).to(have_content('03/12/2023 07:00PM'))
     end
   end
 

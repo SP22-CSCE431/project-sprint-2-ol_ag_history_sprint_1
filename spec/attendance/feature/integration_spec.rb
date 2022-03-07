@@ -18,13 +18,14 @@ OmniAuth.config.silence_get_warning = true
 RSpec.describe('Authentication', type: :feature) do
   before do
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
-    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_user]
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_admin]
     # visit new_admin_session_path click_on "Sign in with Google"
     visit admin_google_oauth2_omniauth_authorize_path
     # Permission.create!(description: 'admin') if Permission.where(description: 'admin').first.nil?
     # unless Admin.where(email: 'userdoe@example.com').first.nil? == false
     #   Admin.create!(email: 'userdoe@example.com', full_name: 'User Doe', uid: '123456789', avatar_url: 'https://lh3.googleusercontent.com/url/photo.jpg')
     # end
+    Member.create!(fname: 'Admin', lname: 'Doe', email: 'admindoe@tamu.edu')
   end
 
   # Attendance Test
@@ -34,11 +35,11 @@ RSpec.describe('Authentication', type: :feature) do
       testMember1 = Member.create!(fname: "John", lname: "Henry", email: "JohnHenry@email.com")
       testEvent1 = Event.create!(name: "Funeral", location: "Church", start_time: "03/03/2022 10:00PM", end_time: "03/03/2022 11:00PM", description: "N/A")
       visit new_attendance_path
-      select "John", :from => "Member"
-      select "Funeral", :from => "Event"
+      select "John", :from => "attendance_member_id", match: :first
+      select "Funeral", :from => "attendance_event_id", match: :first
       check 'Rsvp'
       check 'Attended'
-      click_on "Create Attendance"
+      click_on "Submit"
       visit attendances_path
       expect(page).to have_content('John')
       expect(page).to have_content('Funeral')
@@ -52,10 +53,10 @@ RSpec.describe('Authentication', type: :feature) do
       testMember1 = Member.create!(fname: "John", lname: "Henry", email: "JohnHenry@email.com")
       testEvent1 = Event.create!(name: "Funeral", location: "Church", start_time: "03/03/2022 10:00PM", end_time: "03/03/2022 11:00PM", description: "N/A")
       visit new_attendance_path
-      select "John", :from => "Member"
-      select "Funeral", :from => "Event"
+      select "John", :from => "attendance_member_id", match: :first
+      select "Funeral", :from => "attendance_event_id", match: :first
       check 'Attended'
-      click_on "Create Attendance"
+      click_on "Submit"
       visit attendances_path
       expect(page).to have_content('John')
       expect(page).to have_content('Funeral')
@@ -71,20 +72,20 @@ RSpec.describe('Authentication', type: :feature) do
       testEvent1 = Event.create!(name: "Funeral", location: "Church", start_time: "03/03/2022 10:00PM", end_time: "03/03/2022 11:00PM", description: "N/A")
       testEvent2 = Event.create!(name: "Party", location: "MSC", start_time: "03/03/2022 10:00PM", end_time: "03/03/2022 11:00PM", description: "N/A")
       visit new_attendance_path
-      select "John", :from => "Member"
-      select "Funeral", :from => "Event"
+      select "John", :from => "attendance_member_id", match: :first
+      select "Funeral", :from => "attendance_event_id", match: :first
       check 'Rsvp'
       check 'Attended'
-      click_on "Create Attendance"
+      click_on "Submit"
       visit attendances_path
       visit new_attendance_path
-      select "Jane", :from => "Member"
-      select "Party", :from => "Event"
+      select "Jane", :from => "attendance_member_id", match: :first
+      select "Party", :from => "attendance_event_id", match: :first
       check 'Rsvp'
       check 'Attended'
-      click_on "Create Attendance"
+      click_on "Submit"
       visit attendances_path
-      click_link "Member Name"
+      # click_link "Member Name"
       expect(page).to have_content('John')
       expect(page).to have_content('Jane')
     end
