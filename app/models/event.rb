@@ -25,5 +25,4 @@ class Event < ApplicationRecord
             errors.add(:end_time, 'must not have already passed')
         end
     end
-    
 end
