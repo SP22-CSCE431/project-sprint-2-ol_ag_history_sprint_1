@@ -17,7 +17,7 @@
   </div>
 
   <div class="field form-group">
-    <Label class="form-label"> <%= form.label :event, "Event" %> </label>
+    <%= form.label :event, "Event" %> </label>
     <%=collection_select( :attendance, :event_id, Event.all, :id, :name) %>
   </div>
 
