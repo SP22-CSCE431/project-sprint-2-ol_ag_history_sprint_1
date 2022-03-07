@@ -25,15 +25,17 @@
 
           <tbody>
             <% @dues.each do |due| %>
-              <% if due.member_id == Member.find_by(:email => current_admin.email).id%>
+              <% if due.member_id == Member.find_by(:email => current_admin.email).id || Member.find_by(:email =>current_admin.email).admin?%>
                 <tr>
                   <td><%= Member.where(id: due.member_id).last.fname %></td>
                   <td><%= Event.where(id: due.event_id).last.name %></td>
                   <td><%= due.dueAmount %></td>
                   <td><%= due.paid_show(due.paid?) %></td>
+                  <% if Member.find_by(:email =>current_admin.email).admin? %>
                   <td><%= link_to 'Show', due %></td>
                   <td><%= link_to 'Edit', edit_due_path(due) %></td>
                   <td><%= link_to 'Destroy', due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <%end %>
                 </tr>
               <% end %>
             <% end %>

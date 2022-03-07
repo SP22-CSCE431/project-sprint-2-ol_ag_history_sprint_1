@@ -21,15 +21,19 @@
 
           <tbody>
             <% @attendances.each do |attendance| %>
+            <% if attendance.member_id == Member.find_by(:email => current_admin.email).id || Member.find_by(:email =>current_admin.email).admin?%>
               <tr>
                 <td><%= Member.where(id: attendance.member_id).last.fname %></td>
                 <td><%= Event.where(id: attendance.event_id).last.name %></td>
                 <td><%= attendance.attended %></td>
                 <td><%= attendance.rsvp %></td>
+                <% if Member.find_by(:email =>current_admin.email).admin? %>
                 <td><%= link_to 'Show', attendance %></td>
                 <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
                 <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
               </tr>
+              <% end %>
             <% end %>
           </tbody>
         </table>
