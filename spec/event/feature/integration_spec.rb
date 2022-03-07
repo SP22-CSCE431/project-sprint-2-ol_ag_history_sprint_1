@@ -72,6 +72,4 @@ RSpec.describe('Authentication', type: :feature) do
     end
   end
 
-
-
 end
