@@ -17,6 +17,7 @@ require 'rails_helper'
 OmniAuth.config.silence_get_warning = true
 RSpec.describe('Authentication', type: :feature) do
   before do
+    Member.create!(fname: 'Admin', lname: 'Doe', email: 'admindoe@tamu.edu',  admin: 1)
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_admin]
     # visit new_admin_session_path click_on "Sign in with Google"
@@ -32,7 +33,7 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'paid', type: :feature do
     it 'valid inputs' do
-      testMember1 = Member.create!(fname: 'John', lname: 'Henry', email: 'JohnHenry@email.com')
+      testMember1 = Member.create!(fname: 'John', lname: 'Henry', email: 'JohnHenry@email.com', admin: 1)
       testEvent1 = Event.create!(name: "Funeral", location: "Church", start_time: "03/03/2022 10:00PM", end_time: "03/03/2022 11:00PM", description: "N/A")
       visit new_due_path
       select "John", :from => "due_member_id", match: :first
@@ -50,7 +51,7 @@ RSpec.describe('Authentication', type: :feature) do
 
   describe 'not paid', type: :feature do
     it 'valid inputs' do
-      testMember1 = Member.create!(fname: 'John', lname: 'Henry', email: 'JohnHenry@email.com')
+      testMember1 = Member.create!(fname: 'John', lname: 'Henry', email: 'JohnHenry@email.com', admin: 1)
       testEvent1 = Event.create!(name: "Funeral", location: "Church", start_time: "03/03/2022 10:00PM", end_time: "03/03/2022 11:00PM", description: "N/A")
       visit new_due_path
       select "John", :from => "due_member_id", match: :first

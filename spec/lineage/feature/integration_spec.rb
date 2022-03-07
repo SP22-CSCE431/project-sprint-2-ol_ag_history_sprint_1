@@ -17,6 +17,7 @@ require 'rails_helper'
 OmniAuth.config.silence_get_warning = true
 RSpec.describe('Authentication', type: :feature) do
   before do
+    Member.create!(fname: 'Admin', lname: 'Doe', email: 'admindoe@tamu.edu', admin: 1)
     Rails.application.env_config['devise.mapping'] = Devise.mappings[:admin]
     Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:google_admin]
     # visit new_admin_session_path click_on "Sign in with Google"
@@ -25,15 +26,14 @@ RSpec.describe('Authentication', type: :feature) do
     # unless Admin.where(email: 'userdoe@example.com').first.nil? == false
     #   Admin.create!(email: 'userdoe@example.com', full_name: 'User Doe', uid: '123456789', avatar_url: 'https://lh3.googleusercontent.com/url/photo.jpg')
     # end
-    Member.create!(fname: 'Admin', lname: 'Doe', email: 'admindoe@tamu.edu')
   end
 
   # Lineage
 
   describe 'Lineage one null node', type: :feature do
     it 'valid inputs' do
-      testMember1 = Member.create!(fname: 'John', lname: 'Henry', email: 'JohnHenry@email.com')
-      testMember2 = Member.create!(fname: 'Tim', lname: 'Henry', email: 'JohnHenry@email.com')
+      testMember1 = Member.create!(fname: 'John', lname: 'Henry', email: 'JohnHenry@email.com', admin: 1)
+      testMember2 = Member.create!(fname: 'Tim', lname: 'Henry', email: 'JohnHenry@email.com', admin: 1)
 
       visit new_lineage_path
       select 'John', :from => 'lineage_member_id', match: :first
