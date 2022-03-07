@@ -66,9 +66,9 @@ Rails.application.configure do
     uid: '123456789',
     info: {
       name: 'User Doe',
-      email: 'userdoe@tamu.edu',
-      first_name: 'User',
-      last_name: 'Doe',
+      email: 'robincrass@tamu.edu',
+      first_name: 'Alexander',
+      last_name: 'Torres',
       image: 'https://lh3.googleusercontent.com/url/photo.jpg'
     },
     credentials: {

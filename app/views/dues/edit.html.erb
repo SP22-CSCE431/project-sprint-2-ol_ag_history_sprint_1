@@ -1,3 +1,4 @@
+<% if Member.find_by(:email =>current_admin.email).admin? %>
 <h1>Editing Due</h1>
 
 <%= render 'form', due: @due %>
@@ -6,3 +7,6 @@
 <br><br>
 <%= link_to 'Show', @due, class:"btn btn-outline-dark btn-sm" %>
 <%= link_to 'Back', dues_path, class:"btn btn-outline-dark btn-sm" %>
+<% else %>
+status: 403 'Forbidden'
+<% end %>
