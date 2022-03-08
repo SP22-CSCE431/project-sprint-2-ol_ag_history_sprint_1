@@ -19,7 +19,9 @@
   <strong>Paid:</strong>
   <%= @due.paid %>
 </p>
-<%= link_to 'Remove Due', @due, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
-<br><br>
-<%= link_to 'Edit', edit_due_path(@due), class:"btn btn-outline-dark btn-sm" %>
-<%= link_to 'Back', dues_path, class:"btn btn-outline-dark btn-sm" %>
+<% if Member.find_by(:email =>current_admin.email).admin? %>
+  <%= link_to 'Remove Due', @due, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br><br>
+  <%= link_to 'Edit', edit_due_path(@due), class:"btn btn-outline-dark btn-sm" %>
+<%end %>
+<%= link_to 'Return to Dues', dues_path, class:"btn btn-outline-dark btn-sm" %>
