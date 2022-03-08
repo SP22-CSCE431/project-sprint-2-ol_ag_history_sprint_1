@@ -1,16 +1,25 @@
 <%= search_form_for @q do |f| %>
-                          
-    <%= f.label :fname_or_lname_cont %>
-    <%= f.search_field :fname_or_lname_cont %>
-
-    <%= f.label :email_cont %>
-    <%= f.search_field :email_cont %>
-
-    <%= f.label :major_cont %>
-    <%= f.search_field :major_cont %>
-
-    <%= f.label :active_eq %>
-    <%= f.search_field :active_eq %>
-  
-    <%= f.submit %>
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col">
+        <%= f.label :fname_or_lname_cont %>
+        <%= f.search_field :fname_or_lname_cont %>
+      </div>
+      <div class="col">
+        <%= f.label :email_cont %>
+        <%= f.search_field :email_cont %>
+      </div>
+      <div class="col">
+        <%= f.label :major_cont %>
+        <%= f.search_field :major_cont %>
+      </div>
+      <div class="col">
+        <%= f.label :active_eq %>
+        <%= f.search_field :active_eq %>
+      </div>
+      <div class = "col">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>                    
   <% end %>

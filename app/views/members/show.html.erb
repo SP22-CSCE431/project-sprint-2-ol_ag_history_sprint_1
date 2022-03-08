@@ -37,18 +37,20 @@
 </p>
 
 <%# Hidden to non-Admins %>
-<p>
-  <strong>Phone Number:</strong>
-  <%= @member.phoneNumber %>
-</p>
+<% if Member.find_by(:email =>current_admin.email).admin? %>
+  <p>
+    <strong>Phone Number:</strong>
+    <%= @member.phoneNumber %>
+  </p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @member.admin %>
-</p>
-<%= link_to 'Remove Member', @member, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
-<br><br>
+  <p>
+    <strong>Admin:</strong>
+    <%= @member.admin %>
+  </p>
+  <%= link_to 'Remove Member', @member, class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br><br>
 
-<%= link_to 'Edit', edit_member_path(@member), class:"btn btn-outline-dark btn-sm" %>
+  <%= link_to 'Edit', edit_member_path(@member), class:"btn btn-outline-dark btn-sm" %>
+<%end %>
 <%= link_to 'Back', members_path, class:"btn btn-outline-dark btn-sm" %>
 

@@ -18,9 +18,11 @@
               <th>Major</th>
               <th>Active</th>
               <%# Hidden to Members %>
-              <th>Phone Number</th>
-              <th>Admin</th>
-              <th colspan="3"></th>
+              <% if Member.find_by(:email =>current_admin.email).admin? %>
+                <th>Phone Number</th>
+                <th>Admin</th>
+                <th colspan="3"></th>
+              <%end %>
             </tr>
           </thead>
 
@@ -41,7 +43,7 @@
                   <td><%= link_to 'Show', member %></td>
                   <td><%= link_to 'Edit', edit_member_path(member) %></td>
                   <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <% end %>
+                <%end %>
               </tr>
             <% end %>
           </tbody>
@@ -53,5 +55,5 @@
 
 <br>
 <% if Member.find_by(:email =>current_admin.email).admin? %>
-<%= link_to 'New Member', new_member_path, class:"btn btn-outline-dark btn-sm" %>
-<% end %>
+  <%= link_to 'New Member', new_member_path, class:"btn btn-outline-dark btn-sm" %>
+<%end %>

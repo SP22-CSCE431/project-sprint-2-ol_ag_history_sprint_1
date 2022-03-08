@@ -3,11 +3,6 @@
 # location: spec/unit/unit_spec.rb
 require 'rails_helper'
 
-# def setup
-#   test_user = {email: 'user@test.com', password: 'testuser'}
-#   sign_up(test_user)
-#   @auth_tokens = auth_tokens_for_user(test_user)
-# end
 OmniAuth.config.test_mode = true
 
 RSpec.describe(Attendance, type: :model) do
