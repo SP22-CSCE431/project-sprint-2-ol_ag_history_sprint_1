@@ -20,7 +20,7 @@ class Lineage < ApplicationRecord
 
   def name_check (attribute)
     if Member.where(id: attribute).exists?
-      link = link_to(Member.where(id: attribute).last.fname, Rails.application.routes.url_helpers.member_path(attribute))
+      link_to(Member.where(id: attribute).last.fname, Rails.application.routes.url_helpers.member_path(attribute))
     elsif attribute == self.father
       "Head"
     else
