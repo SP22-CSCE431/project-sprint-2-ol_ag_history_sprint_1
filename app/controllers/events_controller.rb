@@ -5,7 +5,6 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    start_date = params.fetch(:start_date, Date.today).to_date
     @events = Event.all
   end
 
