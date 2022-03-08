@@ -1,2 +1,9 @@
-<h1>You're logged in! Welcome to Ol'Ags</h1>
-<%= link_to "Sign Out", destroy_admin_session_path %>
+<div class="container">
+  <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <h1>You're logged in!</h1>
+            <p>Welcome to Ol'Ags</p>
+            <%= link_to "Sign Out", destroy_admin_session_path, class:"btn btn-outline-dark btn-sm" %>
+        </div>
+    </div>
+</div>

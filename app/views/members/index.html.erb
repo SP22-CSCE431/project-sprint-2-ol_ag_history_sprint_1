@@ -1,45 +1,59 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Members</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Joindate</th>
-      <th>Graddate</th>
-      <th>Email</th>
-      <th>Phonenumber</th>
-      <th>City</th>
-      <th>Admin</th>
-      <th>Major</th>
-      <th>Active</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= render 'members/search_form.html.erb' %>
 
-  <tbody>
-    <% @members.each do |member| %>
-      <tr>
-        <td><%= member.fname %></td>
-        <td><%= member.lname %></td>
-        <td><%= member.joinDate %></td>
-        <td><%= member.gradDate %></td>
-        <td><%= member.email %></td>
-        <td><%= member.phoneNumber %></td>
-        <td><%= member.city %></td>
-        <td><%= member.admin %></td>
-        <td><%= member.major %></td>
-        <td><%= member.active %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive fixed-table-body">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr class="table-light">  
+              <th>Name</th>
+              <th>Join Date</th>
+              <th>Graduation Date</th>
+              <th>Email</th>
+              <th>City</th>
+              <th>Major</th>
+              <th>Active</th>
+              <%# Hidden to Members %>
+              <% if Member.find_by(:email =>current_admin.email).admin? %>
+                <th>Phone Number</th>
+                <th>Admin</th>
+                <th colspan="3"></th>
+              <%end %>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @members.each do |member| %>
+              <tr>
+                <td><%= member.fname %> <%= member.lname %></td>
+                <td><%= member.joinDate %></td>
+                <td><%= member.gradDate %></td>
+                <td><%= member.email %></td>
+                <td><%= member.city %></td>
+                <td><%= member.major %></td>
+                <td><%= member.active %></td>
+                <%# Hidden to Members %>
+                <% if Member.find_by(:email =>current_admin.email).admin? %>
+                  <td><%= member.phoneNumber %></td>
+                  <td><%= member.admin %></td>
+                  <td><%= link_to 'Show', member %></td>
+                  <td><%= link_to 'Edit', edit_member_path(member) %></td>
+                  <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <%end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
-
-<%= link_to 'New Member', new_member_path %>
+<% if Member.find_by(:email =>current_admin.email).admin? %>
+  <%= link_to 'New Member', new_member_path, class:"btn btn-outline-dark btn-sm" %>
+<%end %>

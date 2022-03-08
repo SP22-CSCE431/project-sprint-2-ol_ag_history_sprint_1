@@ -1,5 +1,9 @@
+<% if Member.find_by(:email =>current_admin.email).admin? %>
 <h1>New Due</h1>
 
 <%= render 'form', due: @due %>
 
-<%= link_to 'Back', dues_path %>
+<%= link_to 'Back to Dues', dues_path, class:"btn btn-outline-dark btn-sm" %>
+<% else %>
+status: 403 'Forbidden'
+<% end %>

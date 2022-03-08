@@ -11,57 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :fname %>
-    <%= form.text_field :fname %>
+  <div class="field form-group">
+    <Label class="form-label"> <%= form.label :fname, "First Name" %> </label>
+    <%= form.text_field :fname, class:"form-control", placeholder:"First Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :lname %>
-    <%= form.text_field :lname %>
+  <div class="field form-group">
+    <Label class="form-label"> <%= form.label :lname, "Last Name" %> </label>
+    <%= form.text_field :lname, class:"form-control", placeholder:"Last Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :joinDate %>
-    <%= form.date_field :joinDate %>
+  <div class="field form-group">
+    <Label class="form-label"> <%= form.label :joinDate, "Join Date" %> </label>
+    <%= form.date_field :joinDate, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :gradDate %>
-    <%= form.date_field :gradDate %>
+  <div class="field form-group">
+    <Label class="form-label"> <%= form.label :gradDate, "Graduation Date" %> </label>
+    <%= form.date_field :gradDate, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="field form-group">
+    <Label class="form-label"> <%= form.label :email, "Email Address" %> </label>
+    <%= form.text_field :email, class:"form-control", placeholder:"example@tamu.edu" %>
   </div>
 
-  <div class="field">
-    <%= form.label :phoneNumber %>
-    <%= form.text_field :phoneNumber %>
+  <div class="field form-group">
+    <Label class="form-label"> <%= form.label :phoneNumber, "Phone Number" %> </label>
+    <%= form.text_field :phoneNumber, class:"form-control", placeholder:"5555555555" %>
   </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+  <div class="field form-group">
+   <Label class="form-label"> <%= form.label :city, "City" %> </label>
+    <%= form.text_field :city, class:"form-control", placeholder:"City" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :admin %>
-    <%= form.check_box :admin %>
+    <%= form.check_box :admin%>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :major %>
-    <%= form.text_field :major %>
+    <%= form.text_field :major, class:"form-control", placeholder:"Major" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :active %>
     <%= form.check_box :active %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class:"btn btn-outline-dark"%>
   </div>
 <% end %>

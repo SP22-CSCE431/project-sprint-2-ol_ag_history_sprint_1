@@ -5,7 +5,6 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    start_date = params.fetch(:start_date, Date.today).to_date
     @events = Event.all
   end
 
@@ -73,4 +72,5 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :description, :location, :start_time, :end_time)
   end
+
 end

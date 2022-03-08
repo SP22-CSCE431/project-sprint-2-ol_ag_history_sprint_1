@@ -1,5 +1,9 @@
+<% if Member.find_by(:email =>current_admin.email).admin? %>
 <h1>New Lineage</h1>
 
 <%= render 'form', lineage: @lineage %>
 
-<%= link_to 'Back', lineages_path %>
+<%= link_to 'Back to Lineage', lineages_path, class:"btn btn-outline-dark btn-sm" %>
+<% else %>
+status: 403 'Forbidden'
+<% end %>
