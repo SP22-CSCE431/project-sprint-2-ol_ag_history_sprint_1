@@ -4,7 +4,6 @@ class Event < ApplicationRecord
     has_many :attendance, dependent: :destroy
     has_many :due, dependent: :destroy
     validates :name, :description, :location, :start_time, :end_time, presence: true
-<<<<<<< HEAD
     validate :start_greater_equal, :inFuture
 
     def start_greater_equal
@@ -26,6 +25,4 @@ class Event < ApplicationRecord
             errors.add(:end_time, 'must not have already passed')
         end
     end
-=======
->>>>>>> test
 end
