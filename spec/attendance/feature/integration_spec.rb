@@ -90,5 +90,5 @@ RSpec.describe('Authentication', type: :feature) do
       expect(page).to have_content('Jane')
     end
   end
-
+ 
 end
